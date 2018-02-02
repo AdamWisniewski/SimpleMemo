@@ -2,24 +2,22 @@
 
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
 <?import javafx.scene.control.Menu?>
 <?import javafx.scene.control.MenuBar?>
 <?import javafx.scene.control.MenuItem?>
-<?import javafx.scene.control.PasswordField?>
-<?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="ap_loginView" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="300.0" prefWidth="400.0" xmlns="http://javafx.com/javafx/8.0.101" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane fx:id="ap_listView" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="450.0" prefWidth="650.0" xmlns="http://javafx.com/javafx/8.0.101" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <Label fx:id="lb_user" layoutX="62.0" layoutY="109.0" text="Użytkownik :" textAlignment="CENTER" />
-      <MenuBar fx:id="mb_loginView" prefHeight="25.0" prefWidth="400.0">
+      <MenuBar fx:id="mb_loginView" prefHeight="25.0" prefWidth="650.0">
         <menus>
           <Menu fx:id="m_program" mnemonicParsing="false" text="Program">
             <items>
-                  <MenuItem fx:id="mi_newFlashcardSet" disable="true" mnemonicParsing="false" onAction="#createNewFlashcardSet" text="Stwórz nowy zestaw słówek" />
+                  <MenuItem fx:id="mi_newFlashcardSet" mnemonicParsing="false" onAction="#createNewFlashcardSet" text="Stwórz nowy zestaw słówek" />
               <MenuItem fx:id="mi_editCurrentFlashcardSet" disable="true" mnemonicParsing="false" onAction="#editCurrentFlashcardSet" text="Przejdź do wprowadzania słówek w bierzącym zestawie" />
-                  <MenuItem fx:id="mi_editCurrentFlashcard" disable="true" mnemonicParsing="false" onAction="#editCurrentFlashcard" text="Edytuj obecną pare słówek" />
+                  <MenuItem fx:id="mi_editCurrentFlashcard" disable="true" mnemonicParsing="false" onAction="#editCurrentFlashcard" text="Edytuj obecną parę słówek" />
                   <MenuItem fx:id="mi_learnCurrentFlashcardSet" disable="true" mnemonicParsing="false" onAction="#learnCurrentFlashcardSet" text="Przejdź do nauki w bierzącym zestawie" />
                   <MenuItem fx:id="mi_goToSetList" disable="true" mnemonicParsing="false" onAction="#goToSetList" text="Wróć do wyboru zestawów" />
                   <MenuItem fx:id="mi_logOut" disable="true" mnemonicParsing="false" onAction="#logOut" text="Wyloguj się" />
@@ -35,15 +33,15 @@
           </Menu>
         </menus>
       </MenuBar>
-      <TextField fx:id="tf_user" layoutX="62.0" layoutY="126.0" prefHeight="25.0" prefWidth="277.0" />
-      <Label fx:id="lb_title" layoutX="83.0" layoutY="63.0" text="Simple Memo - nauka słówek" textAlignment="CENTER">
+      <Label fx:id="lb_title" layoutX="234.0" layoutY="47.0" text="Wybierz zestaw słówek" textAlignment="CENTER">
          <font>
             <Font size="18.0" />
          </font>
       </Label>
-      <Label fx:id="lb_password" layoutX="62.0" layoutY="160.0" text="Hasło :" textAlignment="CENTER" />
-      <PasswordField fx:id="pf_password" layoutX="62.0" layoutY="177.0" prefHeight="25.0" prefWidth="277.0" />
-      <Button fx:id="bt_login" layoutX="62.0" layoutY="212.0" mnemonicParsing="false" onMouseClicked="#logToApplication" prefHeight="25.0" prefWidth="102.0" text="Zaloguj" />
-      <Label fx:id="lb_createNewUser" layoutX="185.0" layoutY="216.0" onMouseClicked="#createNewUser" text="Stwórz nowego użytkownika" textAlignment="CENTER" />
+      <ListView fx:id="lv_listOfSets" layoutX="54.0" layoutY="92.0" prefHeight="267.0" prefWidth="542.0" />
+      <Button fx:id="bt_goToLearn" disable="true" layoutX="54.0" layoutY="378.0" mnemonicParsing="false" onMouseClicked="#goToLearn" prefHeight="25.0" prefWidth="110.0" text="Nauka" />
+      <Button fx:id="bt_goToEdit" disable="true" layoutX="171.0" layoutY="378.0" mnemonicParsing="false" onMouseClicked="#goToEdit" prefHeight="25.0" prefWidth="110.0" text="Edycja" />
+      <Button fx:id="bt_resetSet" disable="true" layoutX="289.0" layoutY="378.0" mnemonicParsing="false" onMouseClicked="#resetSet" prefHeight="25.0" prefWidth="110.0" text="Reset" />
+      <Button fx:id="bt_addNewSet" layoutX="461.0" layoutY="378.0" mnemonicParsing="false" onMouseClicked="#addNewSet" prefHeight="25.0" prefWidth="135.0" text="Dodaj nowy zestaw" />
    </children>
 </AnchorPane>

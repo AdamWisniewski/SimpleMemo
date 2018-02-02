@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="ap_listView" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8.0.101" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <MenuBar fx:id="mb_loginView" prefHeight="25.0" prefWidth="800.0">
+        <menus>
+          <Menu fx:id="m_program" mnemonicParsing="false" text="Program">
+            <items>
+                  <MenuItem fx:id="mi_newFlashcardSet" mnemonicParsing="false" onAction="#createNewFlashcardSet" text="Stwórz nowy zestaw słówek" />
+              <MenuItem fx:id="mi_editCurrentFlashcardSet" disable="true" mnemonicParsing="false" onAction="#editCurrentFlashcardSet" text="Przejdź do wprowadzania słówek w bierzącym zestawie" />
+                  <MenuItem fx:id="mi_editCurrentFlashcard" disable="true" mnemonicParsing="false" onAction="#editCurrentFlashcard" text="Edytuj obecną parę słówek" />
+                  <MenuItem fx:id="mi_learnCurrentFlashcardSet" disable="true" mnemonicParsing="false" onAction="#learnCurrentFlashcardSet" text="Przejdź do nauki w bierzącym zestawie" />
+                  <MenuItem fx:id="mi_goToSetList" disable="true" mnemonicParsing="false" onAction="#goToSetList" text="Wróć do wyboru zestawów" />
+                  <MenuItem fx:id="mi_logOut" disable="true" mnemonicParsing="false" onAction="#logOut" text="Wyloguj się" />
+                  <MenuItem fx:id="mi_exitProgram" mnemonicParsing="false" onAction="#exitProgram" text="Wyjście z programu" />
+            </items>
+          </Menu>
+          <Menu fx:id="m_info" mnemonicParsing="false" text="Info">
+            <items>
+              <MenuItem fx:id="mi_programInfo" mnemonicParsing="false" onAction="#displayProgramInfo" text="O programie" />
+                  <MenuItem fx:id="mi_authorInfo" mnemonicParsing="false" onAction="#displayProgramInfo" text="O autorze" />
+                  <MenuItem fx:id="mi_help" mnemonicParsing="false" onAction="#displayHelp" text="Pomoc" />
+            </items>
+          </Menu>
+        </menus>
+      </MenuBar>
+      <Label fx:id="lb_title" layoutX="288.0" layoutY="44.0" text="Edycja zestawu słówek" textAlignment="CENTER">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <TableView fx:id="tb_table" layoutX="26.0" layoutY="99.0" prefHeight="478.0" prefWidth="483.0">
+        <columns>
+          <TableColumn fx:id="tc_1" prefWidth="124.0" text="Nagłówek 1" />
+          <TableColumn fx:id="tc_2" minWidth="0.0" prefWidth="145.0" text="Nagłówek 2" />
+            <TableColumn fx:id="tc_3" minWidth="0.0" prefWidth="213.0" text="Komentarz" />
+        </columns>
+      </TableView>
+      <Label fx:id="lb_word1" layoutX="548.0" layoutY="156.0" text="Nagłówek 1" />
+      <TextField fx:id="tf_word1" layoutX="548.0" layoutY="173.0" prefHeight="25.0" prefWidth="212.0" />
+      <Label fx:id="lb_word2" layoutX="548.0" layoutY="222.0" text="Nagłówek 2" />
+      <TextField fx:id="tf_word2" layoutX="548.0" layoutY="239.0" prefHeight="25.0" prefWidth="212.0" />
+      <Label fx:id="lb_comment" layoutX="547.0" layoutY="293.0" text="Komentarz" />
+      <TextArea fx:id="ta_comment" layoutX="548.0" layoutY="311.0" prefHeight="133.0" prefWidth="212.0" />
+      <Button fx:id="bt_save" layoutX="547.0" layoutY="472.0" mnemonicParsing="false" onMouseClicked="#addCurrentFlashcardToSet" prefHeight="25.0" prefWidth="71.0" text="Zapisz" />
+      <Button fx:id="bt_clear" layoutX="618.0" layoutY="472.0" mnemonicParsing="false" onMouseClicked="#clearForm" prefHeight="25.0" prefWidth="71.0" text="Wyczyść" />
+      <Button fx:id="bt_cancel" layoutX="689.0" layoutY="472.0" mnemonicParsing="false" onMouseClicked="#goToSetList" prefHeight="25.0" prefWidth="71.0" text="Anuluj" />
+   </children>
+</AnchorPane>
