@@ -26,7 +26,7 @@ public class Main extends Application {
 			Parent parent = FXMLLoader.load(getClass().getResource("/adamWisniewski/simpleMemo/view/LoginView.fxml"));
 			Scene scene = new Scene(parent);
 			loginStage.setScene(scene);
-			loginStage.setTitle("Simple Memo");
+			loginStage.setTitle("Simple Memoo");
 			loginStage.setResizable(false);
 			loginStage.show();
 
