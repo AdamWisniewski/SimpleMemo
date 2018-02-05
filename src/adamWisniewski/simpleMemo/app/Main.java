@@ -1,5 +1,6 @@
 package adamWisniewski.simpleMemo.app;
 
+import adamWisniewski.simpleMemo.util.RepositoryInitializer;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -8,27 +9,27 @@ import javafx.stage.Stage;
 
 public class Main extends Application {
 	
-	private static Stage loginStage;
+	private static Stage firstStage;
 
-	private void setLoginStage(Stage stage) {
-		Main.loginStage = stage;
+	private void setFirstStage(Stage stage) {
+		Main.firstStage = stage;
 	}
 
-	public static Stage getLoginStage() {
-		return Main.loginStage;
+	public static Stage getFirstStage() {
+		return Main.firstStage;
 	}
 
 	@Override
-	public void start(Stage loginStage) {
+	public void start(Stage firstStage) {
 		try {
-			setLoginStage(loginStage);
+			setFirstStage(firstStage);
 
 			Parent parent = FXMLLoader.load(getClass().getResource("/adamWisniewski/simpleMemo/view/LoginView.fxml"));
 			Scene scene = new Scene(parent);
-			loginStage.setScene(scene);
-			loginStage.setTitle("Simple Memo");
-			loginStage.setResizable(false);
-			loginStage.show();
+			firstStage.setScene(scene);
+			firstStage.setTitle("Simple Memo");
+			firstStage.setResizable(false);
+			firstStage.show();
 
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -37,5 +38,6 @@ public class Main extends Application {
 
 	public static void main(String[] args) {
 		launch(args);
+		RepositoryInitializer.createRepoIfNotExist();
 	}
 }
