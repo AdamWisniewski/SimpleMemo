@@ -41,5 +41,19 @@ public class RepositoryInitializer {
 		return FXCollections.observableArrayList(directories);
 
 	}
+	
+	public static ObservableList<String> createListOfSets(String userName) {
+
+		File file = new File(repositoryPath + "/" + userName);
+		String[] directories = file.list(new FilenameFilter() {
+			@Override
+			public boolean accept(File current, String name) {
+				return new File(current, name).isDirectory();
+			}
+		});
+
+		return FXCollections.observableArrayList(directories);
+
+	}
 
 }

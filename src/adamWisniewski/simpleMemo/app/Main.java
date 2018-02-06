@@ -41,5 +41,6 @@ public class Main extends Application {
 		launch(args);
 
 		RepositoryInitializer.createRepoIfNotExist();
+
 	}
 }

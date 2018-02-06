@@ -13,8 +13,11 @@ public class User {
 	}
 
 	public User(String name) {
-		super();
 		this.name = name;
+	}
+
+	public User() {
+		this.name = "";
 	}
 
 }

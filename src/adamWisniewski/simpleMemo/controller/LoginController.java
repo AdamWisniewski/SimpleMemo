@@ -3,7 +3,6 @@ package adamWisniewski.simpleMemo.controller;
 import java.io.IOException;
 
 import adamWisniewski.simpleMemo.app.Main;
-import adamWisniewski.simpleMemo.model.User;
 import adamWisniewski.simpleMemo.util.RepositoryInitializer;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -20,6 +19,16 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 
 public class LoginController {
+
+//	private String userName = "";
+//
+//	public String getUserName() {
+//		return userName;
+//	}
+//
+//	public void setUserName(String userName) {
+//		this.userName = userName;
+//	}
 
 	@FXML
 	private AnchorPane ap_loginView;
@@ -130,8 +139,8 @@ public class LoginController {
 
 	@FXML
 	void selectedUser(ActionEvent event) {
-		bt_login.setDisable(false);
-		User loggedUser = new User(cb_user.getValue());
+//		bt_login.setDisable(false);
+//		setUserName(cb_user.getValue());
 
 	}
 
