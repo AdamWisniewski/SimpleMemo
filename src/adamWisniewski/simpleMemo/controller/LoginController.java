@@ -3,6 +3,7 @@ package adamWisniewski.simpleMemo.controller;
 import java.io.IOException;
 
 import adamWisniewski.simpleMemo.app.Main;
+import adamWisniewski.simpleMemo.model.User;
 import adamWisniewski.simpleMemo.util.RepositoryInitializer;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -126,11 +127,13 @@ public class LoginController {
 	void logOut(ActionEvent event) {
 
 	}
-	
-    @FXML
-    void selectedUser(ActionEvent event) {
-    	bt_login.setDisable(false);
-    }
+
+	@FXML
+	void selectedUser(ActionEvent event) {
+		bt_login.setDisable(false);
+		User loggedUser = new User(cb_user.getValue());
+
+	}
 
 	@FXML
 	void logToApplication(MouseEvent event) throws IOException {
@@ -145,11 +148,9 @@ public class LoginController {
 	}
 
 	public void initialize() {
-		// je¿eli wybrana wartoœæ w comboboxie to odblokowaæ przycisk logowania
-		// nadaæ zmiennej nazwê folderu
 
 		cb_user.setItems(RepositoryInitializer.createListOfUsers());
-		
+
 	}
 
 }
