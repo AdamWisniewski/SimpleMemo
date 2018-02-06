@@ -8,7 +8,7 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 
 public class Main extends Application {
-	
+
 	private static Stage firstStage;
 
 	private void setFirstStage(Stage stage) {
@@ -26,6 +26,7 @@ public class Main extends Application {
 
 			Parent parent = FXMLLoader.load(getClass().getResource("/adamWisniewski/simpleMemo/view/LoginView.fxml"));
 			Scene scene = new Scene(parent);
+
 			firstStage.setScene(scene);
 			firstStage.setTitle("Simple Memo");
 			firstStage.setResizable(false);
