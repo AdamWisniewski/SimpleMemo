@@ -41,6 +41,6 @@
       </Label>
       <Button fx:id="bt_login" disable="true" layoutX="64.0" layoutY="161.0" mnemonicParsing="false" onMouseClicked="#logToApplication" prefHeight="25.0" prefWidth="67.0" text="Zaloguj" />
       <Label fx:id="lb_createNewUser" layoutX="187.0" layoutY="165.0" onMouseClicked="#createNewUser" text="Stwórz nowego użytkownika" textAlignment="CENTER" />
-      <ComboBox fx:id="cb_user" layoutX="62.0" layoutY="126.0" prefHeight="25.0" prefWidth="277.0" />
+      <ComboBox fx:id="cb_user" layoutX="62.0" layoutY="126.0" onAction="#selectedUser" prefHeight="25.0" prefWidth="277.0" />
    </children>
 </AnchorPane>
