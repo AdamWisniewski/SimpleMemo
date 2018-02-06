@@ -1,0 +1,38 @@
+[33mcommit d24d6c60774150daaeb52c6e7943b4e45c88ad53[m[33m ([m[1;36mHEAD -> [m[1;32mmaster[m[33m)[m
+Merge: 7fb4fe3 ee66fe1
+Author: AdamWisniewskiPC <awisniewski27@gmail.com>
+Date:   Tue Feb 6 19:18:29 2018 +0100
+
+    commit po poprawieniu różnic
+
+[33mcommit 7fb4fe30b5fe69672aa84c049874fee4c0edfada[m
+Author: AdamWisniewskiPC <awisniewski27@gmail.com>
+Date:   Mon Feb 5 23:00:04 2018 +0100
+
+    w trakcie uzupełniania funkcjonalości na panelu logowania
+
+[33mcommit ee66fe1f7eb194d249f8b658c8172adf2fb71539[m[33m ([m[1;31morigin/master[m[33m)[m
+Author: adam_wisniewski <awisniewski27@gmail.com>
+Date:   Fri Feb 2 20:50:23 2018 +0100
+
+    testowy commit z laptopa
+
+[33mcommit 29c01464b745a2437b686ddeb00dc15efb83665f[m
+Author: AdamWisniewskiPC <awisniewski27@gmail.com>
+Date:   Fri Feb 2 19:04:37 2018 +0100
+
+    - uporządkowanie paczek
+    - dodanie klas kontrolerów
+    - klasa main umożliwia uruchomienie aplikacji
+
+[33mcommit 612e1209e90a85600b3f4d83cc069e977e34c10e[m
+Author: AdamWisniewskiPC <awisniewski27@gmail.com>
+Date:   Fri Feb 2 17:51:33 2018 +0100
+
+    dodanie czterech widoków
+
+[33mcommit 501a4918dd92a4bf17155246becb6a86d7f263f4[m
+Author: AdamWisniewskiPC <awisniewski27@gmail.com>
+Date:   Thu Feb 1 20:18:00 2018 +0100
+
+    initial commit

@@ -1,15 +1,14 @@
 package adamWisniewski.simpleMemo.util;
 
-import java.io.BufferedWriter;
 import java.io.File;
-import java.io.FileWriter;
-import java.io.IOException;
+import java.io.FilenameFilter;
+
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 
 public class RepositoryInitializer {
 
-	private final static String repositoryPath = "C:/SuperMemo";
-
-	private final static String fileName = "usersList.csv";
+	private static final String repositoryPath = "C:/SuperMemo";
 
 	public static void createRepoIfNotExist() {
 
@@ -18,16 +17,29 @@ public class RepositoryInitializer {
 			path.mkdir();
 		}
 
-		File file = new File(repositoryPath + "/" + fileName);
-		try {
-			FileWriter fw = new FileWriter(file.getAbsoluteFile());
-			BufferedWriter bw = new BufferedWriter(fw);
-			bw.write("");
-			bw.close();
-		} catch (IOException e) {
-			e.printStackTrace();
-			System.exit(-1);
+	}
+
+	public static void createRepoIfNotExist(String userName) {
+
+		File path = new File(repositoryPath + "/" + userName);
+		if (!path.exists()) {
+			path.mkdir();
 		}
+
+	}
+
+	public static ObservableList<String> createListOfUsers() {
+
+		File file = new File(repositoryPath);
+		String[] directories = file.list(new FilenameFilter() {
+			@Override
+			public boolean accept(File current, String name) {
+				return new File(current, name).isDirectory();
+			}
+		});
+
+		return FXCollections.observableArrayList(directories);
+
 	}
 
 }

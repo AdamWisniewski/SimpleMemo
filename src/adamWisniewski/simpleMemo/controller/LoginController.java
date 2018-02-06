@@ -3,8 +3,7 @@ package adamWisniewski.simpleMemo.controller;
 import java.io.IOException;
 
 import adamWisniewski.simpleMemo.app.Main;
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
+import adamWisniewski.simpleMemo.util.RepositoryInitializer;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -68,8 +67,6 @@ public class LoginController {
 
 	@FXML
 	private ComboBox<String> cb_user;
-
-	ObservableList<String> users;
 
 	@FXML
 	private Label lb_title;
@@ -146,8 +143,8 @@ public class LoginController {
 		// uzupe³niæ o pozyskanie nazw folderów i wyœwietliæ w comboboxsie
 		// je¿eli wybrana wartoœæ w comboboxie to odblokowaæ przycisk logowania
 		// nadaæ zmiennej nazwê folderu
-		users = FXCollections.observableArrayList("aaa", "bbb");
-		cb_user.setItems(users);
+
+		cb_user.setItems(RepositoryInitializer.createListOfUsers());
 	}
 
 }
