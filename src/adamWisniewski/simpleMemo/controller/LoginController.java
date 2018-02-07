@@ -20,15 +20,15 @@ import javafx.scene.layout.AnchorPane;
 
 public class LoginController {
 
-//	private String userName = "";
-//
-//	public String getUserName() {
-//		return userName;
-//	}
-//
-//	public void setUserName(String userName) {
-//		this.userName = userName;
-//	}
+	private static String userName;
+
+	public static String getUserName() {
+		return userName;
+	}
+
+	public void setUserName(String userName) {
+		this.userName = userName;
+	}
 
 	@FXML
 	private AnchorPane ap_loginView;
@@ -139,17 +139,18 @@ public class LoginController {
 
 	@FXML
 	void selectedUser(ActionEvent event) {
-//		bt_login.setDisable(false);
-//		setUserName(cb_user.getValue());
+		bt_login.setDisable(false);
 
 	}
 
 	@FXML
 	void logToApplication(MouseEvent event) throws IOException {
 
-		Parent parent = FXMLLoader.load(getClass().getResource("/adamWisniewski/simpleMemo/view/ListView.fxml"));
-		Scene scene = new Scene(parent);
-		Main.getFirstStage().setScene(scene);
+		setUserName(cb_user.getValue());
+
+		Parent parent2 = FXMLLoader.load(getClass().getResource("/adamWisniewski/simpleMemo/view/ListView.fxml"));
+		Scene scene2 = new Scene(parent2);
+		Main.getFirstStage().setScene(scene2);
 		Main.getFirstStage().setTitle("Simple Memo");
 		Main.getFirstStage().setResizable(false);
 		Main.getFirstStage().show();
@@ -158,7 +159,7 @@ public class LoginController {
 
 	public void initialize() {
 
-		cb_user.setItems(RepositoryInitializer.createListOfUsers());
+		cb_user.setItems(RepositoryInitializer.createListOfContent());
 
 	}
 

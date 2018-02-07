@@ -32,6 +32,8 @@ public class Main extends Application {
 			firstStage.setResizable(false);
 			firstStage.show();
 
+			RepositoryInitializer.createFolderIfNotExist();
+
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -39,8 +41,6 @@ public class Main extends Application {
 
 	public static void main(String[] args) {
 		launch(args);
-
-		RepositoryInitializer.createRepoIfNotExist();
 
 	}
 }

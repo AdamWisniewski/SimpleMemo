@@ -1,7 +1,6 @@
 package adamWisniewski.simpleMemo.util;
 
 import java.io.File;
-import java.io.FilenameFilter;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -10,47 +9,39 @@ public class RepositoryInitializer {
 
 	private static final String repositoryPath = "C:/SuperMemo";
 
-	public static void createRepoIfNotExist() {
+	public static void createFolderIfNotExist() {
 
 		File path = new File(repositoryPath);
-		if (!path.exists()) {
-			path.mkdir();
-		}
+		checkIfExist(path);
 
 	}
 
-	public static void createRepoIfNotExist(String userName) {
+	public static void createFolderIfNotExist(String userName) {
 
 		File path = new File(repositoryPath + "/" + userName);
-		if (!path.exists()) {
-			path.mkdir();
-		}
+		checkIfExist(path);
 
 	}
 
-	public static ObservableList<String> createListOfUsers() {
+	private static void checkIfExist(File path) {
+		if (!path.exists()) {
+			path.mkdir();
+		}
+	}
+
+	public static ObservableList<String> createListOfContent() {
 
 		File file = new File(repositoryPath);
-		String[] directories = file.list(new FilenameFilter() {
-			@Override
-			public boolean accept(File current, String name) {
-				return new File(current, name).isDirectory();
-			}
-		});
+		String[] directories = file.list();
 
 		return FXCollections.observableArrayList(directories);
 
 	}
-	
-	public static ObservableList<String> createListOfSets(String userName) {
+
+	public static ObservableList<String> createListOfContent(String userName) {
 
 		File file = new File(repositoryPath + "/" + userName);
-		String[] directories = file.list(new FilenameFilter() {
-			@Override
-			public boolean accept(File current, String name) {
-				return new File(current, name).isDirectory();
-			}
-		});
+		String[] directories = file.list();
 
 		return FXCollections.observableArrayList(directories);
 

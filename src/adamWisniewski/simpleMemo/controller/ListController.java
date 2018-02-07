@@ -1,5 +1,6 @@
 package adamWisniewski.simpleMemo.controller;
 
+import adamWisniewski.simpleMemo.util.RepositoryInitializer;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -139,9 +140,8 @@ public class ListController {
 	}
 
 	public void initialize() {
-		
-// dorobiæ argument do tej metody by pobiera³o listê plików, nie wczytuje plików tylko foldery
-//		lv_listOfSets.setItems(RepositoryInitializer.createListOfSets(LoginController.class.getU));
+
+		lv_listOfSets.setItems(RepositoryInitializer.createListOfContent(LoginController.getUserName()));
 
 	}
 
