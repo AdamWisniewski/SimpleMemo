@@ -4,6 +4,7 @@ import java.io.IOException;
 
 import adamWisniewski.simpleMemo.app.Main;
 import adamWisniewski.simpleMemo.util.RepositoryInitializer;
+import adamWisniewski.simpleMemo.util.WindowInitializer;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -148,12 +149,8 @@ public class LoginController {
 
 		setUserName(cb_user.getValue());
 
-		Parent parent2 = FXMLLoader.load(getClass().getResource("/adamWisniewski/simpleMemo/view/ListView.fxml"));
-		Scene scene2 = new Scene(parent2);
-		Main.getFirstStage().setScene(scene2);
-		Main.getFirstStage().setTitle("Simple Memo");
-		Main.getFirstStage().setResizable(false);
-		Main.getFirstStage().show();
+		WindowInitializer wi = new WindowInitializer();
+		wi.setStage("ListView");;
 
 	}
 

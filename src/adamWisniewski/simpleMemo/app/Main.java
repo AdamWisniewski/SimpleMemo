@@ -1,10 +1,8 @@
 package adamWisniewski.simpleMemo.app;
 
 import adamWisniewski.simpleMemo.util.RepositoryInitializer;
+import adamWisniewski.simpleMemo.util.WindowInitializer;
 import javafx.application.Application;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.stage.Stage;
 
 public class Main extends Application {
@@ -24,13 +22,8 @@ public class Main extends Application {
 		try {
 			setFirstStage(firstStage);
 
-			Parent parent = FXMLLoader.load(getClass().getResource("/adamWisniewski/simpleMemo/view/LoginView.fxml"));
-			Scene scene = new Scene(parent);
-
-			firstStage.setScene(scene);
-			firstStage.setTitle("Simple Memo");
-			firstStage.setResizable(false);
-			firstStage.show();
+			WindowInitializer wi = new WindowInitializer();
+			wi.setStage("LoginView");
 
 			RepositoryInitializer.createFolderIfNotExist();
 

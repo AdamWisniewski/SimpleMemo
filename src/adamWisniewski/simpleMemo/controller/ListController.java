@@ -1,6 +1,9 @@
 package adamWisniewski.simpleMemo.controller;
 
+import java.io.IOException;
+
 import adamWisniewski.simpleMemo.util.RepositoryInitializer;
+import adamWisniewski.simpleMemo.util.WindowInitializer;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -115,7 +118,10 @@ public class ListController {
 	}
 
 	@FXML
-	void goToLearn(MouseEvent event) {
+	void goToLearn(MouseEvent event) throws IOException {
+
+		WindowInitializer wi = new WindowInitializer();
+		wi.setStage("LearnView");
 
 	}
 
@@ -136,6 +142,15 @@ public class ListController {
 
 	@FXML
 	void resetSet(MouseEvent event) {
+
+	}
+
+	@FXML
+	void selectedSet(MouseEvent event) {
+
+		bt_goToLearn.setDisable(false);
+		bt_goToEdit.setDisable(false);
+		bt_resetSet.setDisable(false);
 
 	}
 
