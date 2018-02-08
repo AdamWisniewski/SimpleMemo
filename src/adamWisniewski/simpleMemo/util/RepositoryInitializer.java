@@ -9,6 +9,10 @@ public class RepositoryInitializer {
 
 	private static final String repositoryPath = "C:/SuperMemo";
 
+	public static String getRepositorypath() {
+		return repositoryPath;
+	}
+
 	public static void createFolderIfNotExist() {
 
 		File path = new File(repositoryPath);

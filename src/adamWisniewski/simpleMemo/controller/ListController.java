@@ -2,6 +2,7 @@ package adamWisniewski.simpleMemo.controller;
 
 import java.io.IOException;
 
+import adamWisniewski.simpleMemo.csv.CSVgetter;
 import adamWisniewski.simpleMemo.util.RepositoryInitializer;
 import adamWisniewski.simpleMemo.util.WindowInitializer;
 import javafx.event.ActionEvent;
@@ -16,6 +17,16 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 
 public class ListController {
+
+	private static String flashCardSetName;
+
+	public static String getFlashCardSetName() {
+		return flashCardSetName;
+	}
+
+	public void setFlashCardSetName(String flashCardSetName) {
+		this.flashCardSetName = flashCardSetName;
+	}
 
 	@FXML
 	private AnchorPane ap_listView;
@@ -120,8 +131,11 @@ public class ListController {
 	@FXML
 	void goToLearn(MouseEvent event) throws IOException {
 
+		setFlashCardSetName(lv_listOfSets.getSelectionModel().getSelectedItem());
+
 		WindowInitializer wi = new WindowInitializer();
 		wi.setStage("LearnView");
+		CSVgetter.readCSVtoList();
 
 	}
 
