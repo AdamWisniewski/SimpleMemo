@@ -31,7 +31,7 @@ public class ListController {
 		ListController.flashCardSetName = flashCardSetName;
 	}
 
-	Set<FlashCard> setToLearn = new HashSet<FlashCard>();
+	public static Set<FlashCard> setToLearn = new HashSet<FlashCard>();
 
 	@FXML
 	private AnchorPane ap_listView;
@@ -138,16 +138,14 @@ public class ListController {
 
 		setFlashCardSetName(lv_listOfSets.getSelectionModel().getSelectedItem());
 
-		WindowInitializer wi = new WindowInitializer();
-		wi.setStage("LearnView");
+		
+		// przenieœæ zmienn¹ do LearnController i nadaæ setem poni¿sz¹ wartoœæzrobiæ to setem (mo¿e wtedy bêdzie dostêpne to pole)
 		setToLearn = CSVgetter.makeSetToLearn(CSVgetter.readCSVtoList());
 		
-//		wydruk kontrolny
-//		for (FlashCard fc : setToLearn) {
-//
-//			System.out.println(fc.toString());
-//
-//		}
+		WindowInitializer wi = new WindowInitializer();
+		wi.setStage("LearnView");
+
+		
 
 	}
 
