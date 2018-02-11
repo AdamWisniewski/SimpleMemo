@@ -20,12 +20,13 @@ public class Main extends Application {
 	@Override
 	public void start(Stage firstStage) {
 		try {
+
+			RepositoryInitializer.createFolderIfNotExist();
+
 			setFirstStage(firstStage);
 
 			WindowInitializer wi = new WindowInitializer();
 			wi.setStage("LoginView");
-
-			RepositoryInitializer.createFolderIfNotExist();
 
 		} catch (Exception e) {
 			e.printStackTrace();

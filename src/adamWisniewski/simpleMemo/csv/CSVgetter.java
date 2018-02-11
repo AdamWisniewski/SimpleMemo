@@ -4,7 +4,9 @@ import java.io.File;
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 import org.apache.commons.csv.CSVFormat;
 import org.apache.commons.csv.CSVParser;
@@ -21,30 +23,37 @@ public class CSVgetter {
 
 		File csvData = new File(RepositoryInitializer.getRepositorypath() + "/" + LoginController.getUserName() + "/"
 				+ ListController.getFlashCardSetName());
-		// wydruk kontrolny do konsoli
 
-		System.out.println(csvData);
-
-		CSVParser parser = CSVParser.parse(csvData, StandardCharsets.UTF_8, CSVFormat.DEFAULT.withSkipHeaderRecord(true));
+		CSVParser parser = CSVParser.parse(csvData, StandardCharsets.UTF_8,
+				CSVFormat.DEFAULT.withSkipHeaderRecord(true));
+		
 		List<CSVRecord> list = parser.getRecords();
 		parser.close();
 
-		// wydruk kontrolny do konsoli
-		System.out.println(list.get(1));
-		System.out.println(list.get(1).get(0));
-		
 		List<FlashCard> formattedList = new ArrayList<FlashCard>();
-		
+
 		for (CSVRecord csvr : list) {
 			FlashCard fc = new FlashCard(csvr.get(0), csvr.get(1), csvr.get(2), csvr.get(3));
-			
+
 			formattedList.add(fc);
-			
-			// wydruk kontrolny do konsoli
-			System.out.println(fc);
+
 		}
-		
+
 		return formattedList;
 	}
-	
+
+	public static Set<FlashCard> makeSetToLearn(List<FlashCard> formattedList) {
+
+		Set<FlashCard> setToLearn = new HashSet<FlashCard>();
+
+		for (FlashCard fc : formattedList) {
+			if ("0".equals(fc.getKnowlege())) {
+				setToLearn.add(fc);
+			}
+
+		}
+
+		return setToLearn;
+	}
+
 }

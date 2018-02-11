@@ -1,8 +1,11 @@
 package adamWisniewski.simpleMemo.controller;
 
 import java.io.IOException;
+import java.util.HashSet;
+import java.util.Set;
 
 import adamWisniewski.simpleMemo.csv.CSVgetter;
+import adamWisniewski.simpleMemo.model.FlashCard;
 import adamWisniewski.simpleMemo.util.RepositoryInitializer;
 import adamWisniewski.simpleMemo.util.WindowInitializer;
 import javafx.event.ActionEvent;
@@ -25,8 +28,10 @@ public class ListController {
 	}
 
 	public void setFlashCardSetName(String flashCardSetName) {
-		this.flashCardSetName = flashCardSetName;
+		ListController.flashCardSetName = flashCardSetName;
 	}
+
+	Set<FlashCard> setToLearn = new HashSet<FlashCard>();
 
 	@FXML
 	private AnchorPane ap_listView;
@@ -135,7 +140,14 @@ public class ListController {
 
 		WindowInitializer wi = new WindowInitializer();
 		wi.setStage("LearnView");
-		CSVgetter.readCSVtoList();
+		setToLearn = CSVgetter.makeSetToLearn(CSVgetter.readCSVtoList());
+		
+//		wydruk kontrolny
+//		for (FlashCard fc : setToLearn) {
+//
+//			System.out.println(fc.toString());
+//
+//		}
 
 	}
 
