@@ -150,7 +150,7 @@ public class LoginController {
 		setUserName(cb_user.getValue());
 
 		WindowInitializer wi = new WindowInitializer();
-		wi.setStage("ListView");;
+		wi.setStage("ListView");
 
 	}
 

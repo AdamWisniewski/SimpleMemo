@@ -62,7 +62,7 @@ public class CSVgetter {
 	}
 
 	public static void showDialogWhenEmptySetToLearn(Set<FlashCard> setToLearn) throws IOException {
-		if (setToLearn.isEmpty()) {
+		if (!setToLearn.isEmpty()) {
 
 			Alert alert = new Alert(AlertType.INFORMATION);
 			alert.setTitle("Gratulacje!");
@@ -71,6 +71,7 @@ public class CSVgetter {
 					"Wróæ do listy zestawów i wybierz inny lub zresetuj ustawienia dla tego zestawu");
 
 			alert.showAndWait();
+		
 			WindowInitializer wi = new WindowInitializer();
 			wi.setStage("ListView");
 

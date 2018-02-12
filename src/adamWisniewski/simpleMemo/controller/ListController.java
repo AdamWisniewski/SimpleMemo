@@ -138,14 +138,10 @@ public class ListController {
 
 		setFlashCardSetName(lv_listOfSets.getSelectionModel().getSelectedItem());
 
-		
-		// przenieœæ zmienn¹ do LearnController i nadaæ setem poni¿sz¹ wartoœæzrobiæ to setem (mo¿e wtedy bêdzie dostêpne to pole)
 		setToLearn = CSVgetter.makeSetToLearn(CSVgetter.readCSVtoList());
-		
+
 		WindowInitializer wi = new WindowInitializer();
 		wi.setStage("LearnView");
-
-		
 
 	}
 
