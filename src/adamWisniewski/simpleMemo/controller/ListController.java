@@ -27,7 +27,7 @@ public class ListController {
 		return flashCardSetName;
 	}
 
-	public void setFlashCardSetName(String flashCardSetName) {
+	public static void setFlashCardSetName(String flashCardSetName) {
 		ListController.flashCardSetName = flashCardSetName;
 	}
 
@@ -136,12 +136,20 @@ public class ListController {
 	@FXML
 	void goToLearn(MouseEvent event) throws IOException {
 
-		setFlashCardSetName(lv_listOfSets.getSelectionModel().getSelectedItem());
+		flashCardSetName = lv_listOfSets.getSelectionModel().getSelectedItem();
 
 		setToLearn = CSVgetter.makeSetToLearn(CSVgetter.readCSVtoList());
 
-		WindowInitializer wi = new WindowInitializer();
-		wi.setStage("LearnView");
+		if (setToLearn.isEmpty()) {
+
+			DialogController.showDialogEmptySetToLearn();
+
+		} else {
+
+			WindowInitializer wi = new WindowInitializer();
+			wi.setStage("LearnView");
+
+		}
 
 	}
 

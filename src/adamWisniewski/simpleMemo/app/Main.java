@@ -17,6 +17,8 @@ public class Main extends Application {
 		return Main.firstStage;
 	}
 
+	WindowInitializer wi = new WindowInitializer();
+	
 	@Override
 	public void start(Stage firstStage) {
 		try {
@@ -25,7 +27,7 @@ public class Main extends Application {
 
 			setFirstStage(firstStage);
 
-			WindowInitializer wi = new WindowInitializer();
+			
 			wi.setStage("LoginView");
 
 		} catch (Exception e) {

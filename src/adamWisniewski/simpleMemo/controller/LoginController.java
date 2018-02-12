@@ -2,14 +2,10 @@ package adamWisniewski.simpleMemo.controller;
 
 import java.io.IOException;
 
-import adamWisniewski.simpleMemo.app.Main;
 import adamWisniewski.simpleMemo.util.RepositoryInitializer;
 import adamWisniewski.simpleMemo.util.WindowInitializer;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
@@ -27,8 +23,8 @@ public class LoginController {
 		return userName;
 	}
 
-	public void setUserName(String userName) {
-		this.userName = userName;
+	public static void setUserName(String userName) {
+		LoginController.userName = userName;
 	}
 
 	@FXML

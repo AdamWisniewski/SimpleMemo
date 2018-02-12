@@ -1,5 +1,10 @@
 package adamWisniewski.simpleMemo.controller;
 
+import java.io.IOException;
+import java.util.HashSet;
+import java.util.Set;
+
+import adamWisniewski.simpleMemo.model.FlashCard;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -12,6 +17,8 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 
 public class LearnController {
+
+	public static Set<FlashCard> setUnderLearning = new HashSet<FlashCard>();
 
 	@FXML
 	private AnchorPane ap_loginView;
@@ -125,9 +132,11 @@ public class LearnController {
 
 	}
 
-	public void initialize() {
-
-		// okienko z zapytaniem o
+	public void initialize() throws IOException {
+		
+		setUnderLearning = ListController.setToLearn;
+		
+		System.out.println(setUnderLearning);
 
 	}
 

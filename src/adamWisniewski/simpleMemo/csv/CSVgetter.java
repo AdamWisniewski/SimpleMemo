@@ -16,9 +16,6 @@ import adamWisniewski.simpleMemo.controller.ListController;
 import adamWisniewski.simpleMemo.controller.LoginController;
 import adamWisniewski.simpleMemo.model.FlashCard;
 import adamWisniewski.simpleMemo.util.RepositoryInitializer;
-import adamWisniewski.simpleMemo.util.WindowInitializer;
-import javafx.scene.control.Alert;
-import javafx.scene.control.Alert.AlertType;
 
 public class CSVgetter {
 
@@ -56,27 +53,7 @@ public class CSVgetter {
 
 		}
 
-		showDialogWhenEmptySetToLearn(setToLearn);
-
 		return setToLearn;
-	}
-
-	public static void showDialogWhenEmptySetToLearn(Set<FlashCard> setToLearn) throws IOException {
-		if (!setToLearn.isEmpty()) {
-
-			Alert alert = new Alert(AlertType.INFORMATION);
-			alert.setTitle("Gratulacje!");
-			alert.setHeaderText("Wygl¹da na to, ¿e znasz ju¿ wszystkie s³ówka z tego zestawu!");
-			alert.setContentText(
-					"Wróæ do listy zestawów i wybierz inny lub zresetuj ustawienia dla tego zestawu");
-
-			alert.showAndWait();
-		
-			WindowInitializer wi = new WindowInitializer();
-			wi.setStage("ListView");
-
-		}
-
 	}
 
 }
