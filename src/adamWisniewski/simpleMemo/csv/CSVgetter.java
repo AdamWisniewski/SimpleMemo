@@ -4,9 +4,7 @@ import java.io.File;
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
-import java.util.HashSet;
 import java.util.List;
-import java.util.Set;
 
 import org.apache.commons.csv.CSVFormat;
 import org.apache.commons.csv.CSVParser;
@@ -22,7 +20,7 @@ public class CSVgetter {
 	public static List<FlashCard> readCSVtoList() throws IOException {
 
 		File csvData = new File(RepositoryInitializer.getRepositorypath() + "/" + LoginController.getUserName() + "/"
-				+ ListController.getFlashCardSetName());
+				+ ListController.getFlashCardListName());
 
 		CSVParser parser = CSVParser.parse(csvData, StandardCharsets.UTF_8,
 				CSVFormat.DEFAULT.withSkipHeaderRecord(true));
@@ -42,9 +40,9 @@ public class CSVgetter {
 		return formattedList;
 	}
 
-	public static Set<FlashCard> makeSetToLearn(List<FlashCard> formattedList) throws IOException {
+	public static List<FlashCard> makeListToLearn(List<FlashCard> formattedList) throws IOException {
 
-		Set<FlashCard> setToLearn = new HashSet<FlashCard>();
+		List<FlashCard> setToLearn = new ArrayList<FlashCard>();
 
 		for (FlashCard fc : formattedList) {
 			if ("0".equals(fc.getKnowlege())) {

@@ -1,8 +1,8 @@
 package adamWisniewski.simpleMemo.controller;
 
 import java.io.IOException;
-import java.util.HashSet;
-import java.util.Set;
+import java.util.ArrayList;
+import java.util.List;
 
 import adamWisniewski.simpleMemo.csv.CSVgetter;
 import adamWisniewski.simpleMemo.model.FlashCard;
@@ -21,17 +21,17 @@ import javafx.scene.layout.AnchorPane;
 
 public class ListController {
 
-	private static String flashCardSetName;
+	private static String flashCardListName;
 
-	public static String getFlashCardSetName() {
-		return flashCardSetName;
+	public static String getFlashCardListName() {
+		return flashCardListName;
 	}
 
-	public static void setFlashCardSetName(String flashCardSetName) {
-		ListController.flashCardSetName = flashCardSetName;
+	public static void setFlashCardListName(String flashCardListName) {
+		ListController.flashCardListName = flashCardListName;
 	}
 
-	public static Set<FlashCard> setToLearn = new HashSet<FlashCard>();
+	public static List<FlashCard> listToLearn = new ArrayList<FlashCard>();
 
 	@FXML
 	private AnchorPane ap_listView;
@@ -136,13 +136,13 @@ public class ListController {
 	@FXML
 	void goToLearn(MouseEvent event) throws IOException {
 
-		flashCardSetName = lv_listOfSets.getSelectionModel().getSelectedItem();
+		flashCardListName = lv_listOfSets.getSelectionModel().getSelectedItem();
 
-		setToLearn = CSVgetter.makeSetToLearn(CSVgetter.readCSVtoList());
+		listToLearn = CSVgetter.makeListToLearn(CSVgetter.readCSVtoList());
 
-		if (setToLearn.isEmpty()) {
+		if (listToLearn.isEmpty()) {
 
-			DialogController.showDialogEmptySetToLearn();
+			DialogController.showDialogEmptyListToLearn();
 
 		} else {
 

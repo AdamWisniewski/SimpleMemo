@@ -1,8 +1,8 @@
 package adamWisniewski.simpleMemo.controller;
 
 import java.io.IOException;
-import java.util.HashSet;
-import java.util.Set;
+import java.util.ArrayList;
+import java.util.List;
 
 import adamWisniewski.simpleMemo.model.FlashCard;
 import javafx.event.ActionEvent;
@@ -18,7 +18,11 @@ import javafx.scene.layout.AnchorPane;
 
 public class LearnController {
 
-	public static Set<FlashCard> setUnderLearning = new HashSet<FlashCard>();
+	List<FlashCard> listUnderLearning = new ArrayList<FlashCard>();
+	
+	Boolean word2ToHint;
+	
+	FlashCard flashCardOnDisplay;
 
 	@FXML
 	private AnchorPane ap_loginView;
@@ -134,10 +138,34 @@ public class LearnController {
 
 	public void initialize() throws IOException {
 		
-		setUnderLearning = ListController.setToLearn;
+		listUnderLearning = ListController.listToLearn;
 		
-		System.out.println(setUnderLearning);
+		DialogController.showDialogWordToLearn(word2ToHint);
+		
+		
+		//------------------metoda----------------
+		
+		
+//		flashCardOnDisplay = setUnderLearning.
+//		
+//		
+//		if (wyœwietlaWord1 = true) {
+//		String labelka = word1;
+//		String toHint = word2;
+//		} else {
+//		String labelka = word2;
+//		String toHint = word1;
+//		}
+//
+//		widnowLabel = labelka (wyœwietlana od razu)
+//		String windowComment = commment (narazie ukryty);
+//		usuwa ze zbioru powy¿szy FlashCard
+
+//		}
+
 
 	}
+	
+	
 
 }

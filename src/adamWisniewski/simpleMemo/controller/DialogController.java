@@ -1,11 +1,14 @@
 package adamWisniewski.simpleMemo.controller;
 
+import java.util.Optional;
+
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
+import javafx.scene.control.ButtonType;
 
 public class DialogController {
 
-	public static void showDialogEmptySetToLearn() {
+	public static void showDialogEmptyListToLearn() {
 
 		Alert alert = new Alert(AlertType.INFORMATION);
 		alert.setTitle("Gratulacje!");
@@ -13,6 +16,30 @@ public class DialogController {
 		alert.setContentText("Wróæ do listy zestawów i wybierz inny lub zresetuj ustawienia dla tego zestawu");
 
 		alert.showAndWait();
+
+	}
+
+	public static void showDialogWordToLearn(Boolean word2ToHint) {
+
+		Alert alert = new Alert(AlertType.CONFIRMATION);
+		alert.setTitle("Wybierz tryb nauki");
+		alert.setHeaderText("Wybierz tryb nauki");
+
+		ButtonType buttonTypeOne = new ButtonType("ucz siê word1 zgaduj word2");
+		ButtonType buttonTypeTwo = new ButtonType("ucz siê word2 zgaduj word1");
+
+		alert.getButtonTypes().setAll(buttonTypeOne, buttonTypeTwo);
+
+		Optional<ButtonType> result = alert.showAndWait();
+		if (result.get() == buttonTypeOne) {
+			word2ToHint = true;
+			// labelka = word1
+			// toHint = word2
+		} else {
+			word2ToHint = false;
+			// labelka = word2
+			// toHint = word1
+		}
 
 	}
 
