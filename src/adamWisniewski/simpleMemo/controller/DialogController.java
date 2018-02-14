@@ -19,7 +19,7 @@ public class DialogController {
 
 	}
 
-	public static void showDialogWordToLearn(Boolean word2ToHint) {
+	public static Boolean showDialogWordToLearn() {
 
 		Alert alert = new Alert(AlertType.CONFIRMATION);
 		alert.setTitle("Wybierz tryb nauki");
@@ -32,11 +32,11 @@ public class DialogController {
 
 		Optional<ButtonType> result = alert.showAndWait();
 		if (result.get() == buttonTypeOne) {
-			word2ToHint = true;
+			return true;
 			// labelka = word1
 			// toHint = word2
 		} else {
-			word2ToHint = false;
+			return false;
 			// labelka = word2
 			// toHint = word1
 		}

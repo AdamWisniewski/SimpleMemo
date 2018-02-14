@@ -40,11 +40,11 @@ public class CSVgetter {
 		return formattedList;
 	}
 
-	public static List<FlashCard> makeListToLearn(List<FlashCard> formattedList) throws IOException {
+	public static List<FlashCard> makeListToLearn(List<FlashCard> list) throws IOException {
 
 		List<FlashCard> setToLearn = new ArrayList<FlashCard>();
 
-		for (FlashCard fc : formattedList) {
+		for (FlashCard fc : list) {
 			if ("0".equals(fc.getKnowlege())) {
 				setToLearn.add(fc);
 			}

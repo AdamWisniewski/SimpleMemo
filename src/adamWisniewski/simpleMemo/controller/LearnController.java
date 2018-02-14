@@ -3,6 +3,7 @@ package adamWisniewski.simpleMemo.controller;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 
 import adamWisniewski.simpleMemo.model.FlashCard;
 import javafx.event.ActionEvent;
@@ -19,10 +20,14 @@ import javafx.scene.layout.AnchorPane;
 public class LearnController {
 
 	List<FlashCard> listUnderLearning = new ArrayList<FlashCard>();
-	
+
 	Boolean word2ToHint;
-	
+
 	FlashCard flashCardOnDisplay;
+
+	String wordToDisplay;
+
+	String wordToHint;
 
 	@FXML
 	private AnchorPane ap_loginView;
@@ -137,35 +142,51 @@ public class LearnController {
 	}
 
 	public void initialize() throws IOException {
-		
+
 		listUnderLearning = ListController.listToLearn;
-		
-		DialogController.showDialogWordToLearn(word2ToHint);
-		
-		
-		//------------------metoda----------------
-		
-		
-//		flashCardOnDisplay = setUnderLearning.
-//		
-//		
-//		if (wyœwietlaWord1 = true) {
-//		String labelka = word1;
-//		String toHint = word2;
-//		} else {
-//		String labelka = word2;
-//		String toHint = word1;
-//		}
-//
-//		widnowLabel = labelka (wyœwietlana od razu)
-//		String windowComment = commment (narazie ukryty);
-//		usuwa ze zbioru powy¿szy FlashCard
 
-//		}
+		/*
+		 * shows dialog to decide which word will be displayed - decision is set in
+		 * boolean word2ToHint
+		 */
+		word2ToHint = DialogController.showDialogWordToLearn();
 
+		// metoda to wyekstrachowania
+		
+		Random randomizer = new Random();
+
+		flashCardOnDisplay = listUnderLearning.remove(randomizer.nextInt(listUnderLearning.size()));
+
+		
+		if (word2ToHint == true) {
+
+			wordToDisplay = flashCardOnDisplay.getWord1();
+
+			wordToHint = flashCardOnDisplay.getWord2();
+
+		}
+
+		else {
+			wordToDisplay = flashCardOnDisplay.getWord2();
+
+			wordToHint = flashCardOnDisplay.getWord1();
+		}
+
+		//
+		// if (wyœwietlaWord1 = true) {
+		// String labelka = word1;
+		// String toHint = word2;
+		// } else {
+		// String labelka = word2;
+		// String toHint = word1;
+		// }
+		//
+		// widnowLabel = labelka (wyœwietlana od razu)
+		// String windowComment = commment (narazie ukryty);
+		// usuwa ze zbioru powy¿szy FlashCard
+
+		// }
 
 	}
-	
-	
 
 }

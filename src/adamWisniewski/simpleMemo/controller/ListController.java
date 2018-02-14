@@ -30,6 +30,9 @@ public class ListController {
 	public static void setFlashCardListName(String flashCardListName) {
 		ListController.flashCardListName = flashCardListName;
 	}
+	
+//	very important list - to modify after learning and rewrite in original file
+	public static List<FlashCard> originalListFromCSVFile = new ArrayList<FlashCard>();
 
 	public static List<FlashCard> listToLearn = new ArrayList<FlashCard>();
 
@@ -137,8 +140,10 @@ public class ListController {
 	void goToLearn(MouseEvent event) throws IOException {
 
 		flashCardListName = lv_listOfSets.getSelectionModel().getSelectedItem();
+		
+		originalListFromCSVFile = CSVgetter.readCSVtoList();
 
-		listToLearn = CSVgetter.makeListToLearn(CSVgetter.readCSVtoList());
+		listToLearn = CSVgetter.makeListToLearn(originalListFromCSVFile);
 
 		if (listToLearn.isEmpty()) {
 
