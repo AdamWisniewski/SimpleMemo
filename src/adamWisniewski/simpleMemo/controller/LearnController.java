@@ -25,9 +25,25 @@ public class LearnController {
 
 	FlashCard flashCardOnDisplay;
 
-	String wordToDisplay;
+	public static String wordToDisplay;
 
-	String wordToHint;
+	public static String getWordToDisplay() {
+		return wordToDisplay;
+	}
+
+	public static void setWordToDisplay(String wordToDisplay) {
+		LearnController.wordToDisplay = wordToDisplay;
+	}
+
+	public static String getWordToGuess() {
+		return wordToGuess;
+	}
+
+	public static void setWordToGuess(String wordToGuess) {
+		LearnController.wordToGuess = wordToGuess;
+	}
+
+	public static String wordToGuess;
 
 	LearningSystem ls = new LearningSystem();
 
@@ -170,8 +186,29 @@ public class LearnController {
 		word2ToHint = DialogController.showDialogWordToLearn();
 
 		flashCardOnDisplay = ls.getFlashCardToLearn(listUnderLearning);
-		
-		
+
+		setFlashCardWordsOnWindow(flashCardOnDisplay, word2ToHint);
+
+	}
+
+	public void setFlashCardWordsOnWindow(FlashCard flashCardOnDisplay, Boolean word2ToHint) {
+		if (word2ToHint == true) {
+
+			LearnController.setWordToDisplay(flashCardOnDisplay.getWord1());
+
+			LearnController.setWordToGuess(flashCardOnDisplay.getWord2());
+
+		} else {
+			LearnController.setWordToDisplay(flashCardOnDisplay.getWord2());
+
+			LearnController.setWordToGuess(flashCardOnDisplay.getWord1());
+		}
+
+		lb_wordToDisplay.setText(getWordToDisplay());
+
+		lb_wordToGuess.setText(getWordToGuess());
+
+		lb_wordComment.setText(flashCardOnDisplay.getComment());
 
 	}
 
