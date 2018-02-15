@@ -3,9 +3,9 @@ package adamWisniewski.simpleMemo.controller;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Random;
 
 import adamWisniewski.simpleMemo.model.FlashCard;
+import adamWisniewski.simpleMemo.util.LearningSystem;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -29,11 +29,13 @@ public class LearnController {
 
 	String wordToHint;
 
+	LearningSystem ls = new LearningSystem();
+
 	@FXML
 	private AnchorPane ap_loginView;
 
 	@FXML
-	private Label lb_wordToGuess;
+	private Label lb_wordToDisplay;
 
 	@FXML
 	private MenuBar mb_loginView;
@@ -78,13 +80,31 @@ public class LearnController {
 	private TextField tf_wordToEnter;
 
 	@FXML
+	private Label lb_goodAndswer;
+
+	@FXML
+	private Label lb_wrongAndswer;
+
+	@FXML
+	private Label lb_wordToGuess;
+
+	@FXML
 	private Label lb_wordComment;
 
 	@FXML
 	private Button bt_confirm;
 
 	@FXML
+	private Button bt_check;
+
+	@FXML
 	private Button bt_decline;
+
+	@FXML
+	private Label lb_checkShortCutInformation;
+
+	@FXML
+	private Label lb_goToNextShortCutInformation;
 
 	@FXML
 	void confirmGuess(MouseEvent event) {
@@ -145,47 +165,13 @@ public class LearnController {
 
 		listUnderLearning = ListController.listToLearn;
 
-		/*
-		 * shows dialog to decide which word will be displayed - decision is set in
-		 * boolean word2ToHint
-		 */
+		// shows dialog to decide which word will be displayed - decision is set
+		// in boolean word2ToHint
 		word2ToHint = DialogController.showDialogWordToLearn();
 
-		// metoda to wyekstrachowania
+		flashCardOnDisplay = ls.getFlashCardToLearn(listUnderLearning);
 		
-		Random randomizer = new Random();
-
-		flashCardOnDisplay = listUnderLearning.remove(randomizer.nextInt(listUnderLearning.size()));
-
 		
-		if (word2ToHint == true) {
-
-			wordToDisplay = flashCardOnDisplay.getWord1();
-
-			wordToHint = flashCardOnDisplay.getWord2();
-
-		}
-
-		else {
-			wordToDisplay = flashCardOnDisplay.getWord2();
-
-			wordToHint = flashCardOnDisplay.getWord1();
-		}
-
-		//
-		// if (wyœwietlaWord1 = true) {
-		// String labelka = word1;
-		// String toHint = word2;
-		// } else {
-		// String labelka = word2;
-		// String toHint = word1;
-		// }
-		//
-		// widnowLabel = labelka (wyœwietlana od razu)
-		// String windowComment = commment (narazie ukryty);
-		// usuwa ze zbioru powy¿szy FlashCard
-
-		// }
 
 	}
 
