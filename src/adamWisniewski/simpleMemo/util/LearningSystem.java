@@ -12,6 +12,8 @@ public class LearningSystem {
 	public FlashCard getFlashCardToLearn(List<FlashCard> listUnderLearning) throws IOException {
 
 		Random randomizer = new Random();
+		
+		System.out.println(listUnderLearning.size());
 
 		return listUnderLearning.remove(randomizer.nextInt(listUnderLearning.size()));
 

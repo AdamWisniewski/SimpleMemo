@@ -14,6 +14,7 @@ import javafx.scene.control.Menu;
 import javafx.scene.control.MenuBar;
 import javafx.scene.control.MenuItem;
 import javafx.scene.control.TextField;
+import javafx.scene.input.KeyCode;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 
@@ -108,13 +109,7 @@ public class LearnController {
 	private Label lb_wordComment;
 
 	@FXML
-	private Button bt_confirm;
-
-	@FXML
 	private Button bt_check;
-
-	@FXML
-	private Button bt_decline;
 
 	@FXML
 	private Label lb_checkShortCutInformation;
@@ -123,17 +118,14 @@ public class LearnController {
 	private Label lb_goToNextShortCutInformation;
 
 	@FXML
-	void confirmGuess(MouseEvent event) {
-
-	}
-
-	@FXML
 	void createNewFlashcardSet(ActionEvent event) {
 
 	}
 
 	@FXML
-	void declineGuess(MouseEvent event) {
+	void checkGuess(MouseEvent event) throws IOException {
+
+		checkAnswerAndGoToNext();
 
 	}
 
@@ -188,6 +180,18 @@ public class LearnController {
 		flashCardOnDisplay = ls.getFlashCardToLearn(listUnderLearning);
 
 		setFlashCardWordsOnWindow(flashCardOnDisplay, word2ToHint);
+		
+		// akrobacje 
+		
+		ap_loginView.setOnKeyPressed(e -> {
+		    if (e.getCode() == KeyCode.ENTER) {
+		    	try {
+					checkAnswerAndGoToNext();
+				} catch (IOException e1) {
+					e1.printStackTrace();
+				}
+		    }
+		});
 
 	}
 
@@ -214,7 +218,7 @@ public class LearnController {
 
 	// metoda ta ma siê raz uruchomniæ w initialize i potem na przycisku dalej lub
 	// przyciœniêciu enter (enter chyba dac jako akcja on presed naanchorpane)
-	public void checkAnswer() throws IOException {
+	public void checkAnswerAndGoToNext() throws IOException {
 
 		if (lb_wordToGuess.isVisible()) {
 
@@ -269,5 +273,7 @@ public class LearnController {
 		lb_checkShortCutInformation.setVisible(true);
 
 		lb_goToNextShortCutInformation.setVisible(false);
+		
+		tf_wordToEnter.clear();
 	}
 }

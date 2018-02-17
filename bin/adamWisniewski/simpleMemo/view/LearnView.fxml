@@ -9,7 +9,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="ap_loginView" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="301.0" prefWidth="350.0" xmlns="http://javafx.com/javafx/8.0.101" xmlns:fx="http://javafx.com/fxml/1" fx:controller="adamWisniewski.simpleMemo.controller.LearnController">
+<AnchorPane fx:id="ap_loginView" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="301.0" prefWidth="350.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="adamWisniewski.simpleMemo.controller.LearnController">
    <children>
       <Label fx:id="lb_wordToDisplay" layoutX="69.0" layoutY="47.0" prefHeight="20.0" prefWidth="225.0" text="Słowo wyświetlane do odgadnięcia" textAlignment="CENTER">
          <font>
@@ -50,9 +50,7 @@
       </Label>
       <Label fx:id="lb_wordToGuess" layoutX="118.0" layoutY="166.0" text="poprawna odpowiedź" textAlignment="CENTER" visible="false" />
       <Label fx:id="lb_wordComment" layoutX="118.0" layoutY="197.0" text="Komentarz do słówka" textAlignment="CENTER" visible="false" />
-      <Button fx:id="bt_confirm" layoutX="41.0" layoutY="238.0" mnemonicParsing="false" onMouseClicked="#confirmGuess" prefHeight="25.0" prefWidth="67.0" text="znam" />
-      <Button fx:id="bt_check" layoutX="137.0" layoutY="238.0" mnemonicParsing="false" onMouseClicked="#declineGuess" prefHeight="25.0" prefWidth="82.0" text="sprawdzam" />
-      <Button fx:id="bt_decline" layoutX="242.0" layoutY="238.0" mnemonicParsing="false" onMouseClicked="#declineGuess" prefHeight="25.0" prefWidth="67.0" text="nie znam" />
+      <Button fx:id="bt_check" layoutX="137.0" layoutY="238.0" mnemonicParsing="false" onMouseClicked="#checkGuess" prefHeight="25.0" prefWidth="82.0" text="sprawdzam" />
       <Label fx:id="lb_checkShortCutInformation" layoutX="6.0" layoutY="277.0" prefHeight="20.0" prefWidth="225.0" text="wciśnij ENTER by sprawdzić odpowiedź" textAlignment="CENTER">
          <font>
             <Font size="11.0" />
