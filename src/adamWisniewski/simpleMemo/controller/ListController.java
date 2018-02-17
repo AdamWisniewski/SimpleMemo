@@ -4,8 +4,8 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-import adamWisniewski.simpleMemo.csv.CSVgetter;
 import adamWisniewski.simpleMemo.model.FlashCard;
+import adamWisniewski.simpleMemo.util.CSVConverter;
 import adamWisniewski.simpleMemo.util.RepositoryInitializer;
 import adamWisniewski.simpleMemo.util.WindowInitializer;
 import javafx.event.ActionEvent;
@@ -143,9 +143,9 @@ public class ListController {
 
 		flashCardListName = lv_listOfSets.getSelectionModel().getSelectedItem();
 
-		originalListFromCSVFile = CSVgetter.readCSVtoList();
+		originalListFromCSVFile = CSVConverter.readCSVtoList();
 
-		listToLearn = CSVgetter.makeListToLearn(originalListFromCSVFile);
+		listToLearn = CSVConverter.makeListToLearn(originalListFromCSVFile);
 
 		if (listToLearn.isEmpty()) {
 

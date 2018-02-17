@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import adamWisniewski.simpleMemo.model.FlashCard;
+import adamWisniewski.simpleMemo.util.CSVConverter;
 import adamWisniewski.simpleMemo.util.LearningSystem;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -180,17 +181,16 @@ public class LearnController {
 		flashCardOnDisplay = ls.getFlashCardToLearn(listUnderLearning);
 
 		setFlashCardWordsOnWindow(flashCardOnDisplay, word2ToHint);
-		
-		// akrobacje 
-		
+
+		// pressed enter works as button to trigger checkAndswerAndGoToNext()
 		ap_loginView.setOnKeyPressed(e -> {
-		    if (e.getCode() == KeyCode.ENTER) {
-		    	try {
+			if (e.getCode() == KeyCode.ENTER) {
+				try {
 					checkAnswerAndGoToNext();
 				} catch (IOException e1) {
 					e1.printStackTrace();
 				}
-		    }
+			}
 		});
 
 	}
@@ -216,13 +216,9 @@ public class LearnController {
 
 	}
 
-	// metoda ta ma siê raz uruchomniæ w initialize i potem na przycisku dalej lub
-	// przyciœniêciu enter (enter chyba dac jako akcja on presed naanchorpane)
 	public void checkAnswerAndGoToNext() throws IOException {
 
 		if (lb_wordToGuess.isVisible()) {
-
-			ls.checkListIsEmpty(listUnderLearning);
 
 			setLabelsVisibilityBeforeNextAttempt();
 
@@ -232,11 +228,15 @@ public class LearnController {
 
 		} else {
 
+			ls.checkListIsEmpty(listUnderLearning);
+
 			if (tf_wordToEnter.getText().equals(wordToGuess)) {
 
 				lb_goodAndswer.setVisible(true);
 
 				setLabelsVisibilityAfterWordCheck();
+				
+				CSVConverter.setKnowlegeOfFlashCardInList(ListController.originalListFromCSVFile, flashCardOnDisplay);
 
 			} else {
 
@@ -273,7 +273,7 @@ public class LearnController {
 		lb_checkShortCutInformation.setVisible(true);
 
 		lb_goToNextShortCutInformation.setVisible(false);
-		
+
 		tf_wordToEnter.clear();
 	}
 }

@@ -38,18 +38,18 @@
         </menus>
       </MenuBar>
       <TextField fx:id="tf_wordToEnter" layoutX="39.0" layoutY="90.0" prefHeight="25.0" prefWidth="277.0" />
-      <Label fx:id="lb_goodAndswer" layoutX="147.0" layoutY="126.0" text="Dobrze!" textAlignment="CENTER" textFill="#3fb53b" visible="false">
+      <Label fx:id="lb_goodAndswer" alignment="CENTER" layoutX="147.0" layoutY="126.0" text="Dobrze!" textAlignment="CENTER" textFill="#3fb53b" visible="false">
          <font>
             <Font size="16.0" />
          </font>
       </Label>
-      <Label fx:id="lb_wrongAndswer" layoutX="162.0" layoutY="126.0" text="Źle!" textAlignment="CENTER" textFill="#ff0400" visible="false">
+      <Label fx:id="lb_wrongAndswer" alignment="CENTER" layoutX="162.0" layoutY="126.0" text="Źle!" textAlignment="CENTER" textFill="#ff0400" visible="false">
          <font>
             <Font size="16.0" />
          </font>
       </Label>
-      <Label fx:id="lb_wordToGuess" layoutX="118.0" layoutY="166.0" text="poprawna odpowiedź" textAlignment="CENTER" visible="false" />
-      <Label fx:id="lb_wordComment" layoutX="118.0" layoutY="197.0" text="Komentarz do słówka" textAlignment="CENTER" visible="false" />
+      <Label fx:id="lb_wordToGuess" alignment="CENTER" layoutX="118.0" layoutY="166.0" text="poprawna odpowiedź" textAlignment="CENTER" visible="false" />
+      <Label fx:id="lb_wordComment" alignment="CENTER" layoutX="118.0" layoutY="197.0" text="Komentarz do słówka" textAlignment="CENTER" visible="false" />
       <Button fx:id="bt_check" layoutX="137.0" layoutY="238.0" mnemonicParsing="false" onMouseClicked="#checkGuess" prefHeight="25.0" prefWidth="82.0" text="sprawdzam" />
       <Label fx:id="lb_checkShortCutInformation" layoutX="6.0" layoutY="277.0" prefHeight="20.0" prefWidth="225.0" text="wciśnij ENTER by sprawdzić odpowiedź" textAlignment="CENTER">
          <font>

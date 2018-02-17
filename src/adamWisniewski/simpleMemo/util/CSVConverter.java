@@ -1,4 +1,4 @@
-package adamWisniewski.simpleMemo.csv;
+package adamWisniewski.simpleMemo.util;
 
 import java.io.File;
 import java.io.IOException;
@@ -8,14 +8,14 @@ import java.util.List;
 
 import org.apache.commons.csv.CSVFormat;
 import org.apache.commons.csv.CSVParser;
+import org.apache.commons.csv.CSVPrinter;
 import org.apache.commons.csv.CSVRecord;
 
 import adamWisniewski.simpleMemo.controller.ListController;
 import adamWisniewski.simpleMemo.controller.LoginController;
 import adamWisniewski.simpleMemo.model.FlashCard;
-import adamWisniewski.simpleMemo.util.RepositoryInitializer;
 
-public class CSVgetter {
+public class CSVConverter {
 
 	public static List<FlashCard> readCSVtoList() throws IOException {
 
@@ -52,6 +52,28 @@ public class CSVgetter {
 		}
 
 		return setToLearn;
+	}
+
+	public static void setKnowlegeOfFlashCardInList(List<FlashCard> originalListFromCSVFile,
+			FlashCard flashCardOnDisplay) {
+
+		for (FlashCard fc : originalListFromCSVFile) {
+
+			if (fc.equals(flashCardOnDisplay)) {
+				fc.setKnowlege("1");
+			}
+
+		}
+
+	}
+	
+	public static void writeListToCSV(List<FlashCard> originalListFromCSVFile, String fileName) {
+		
+//		dojœæ do pliku
+//		wykasowaæ zawartoœæ w oryginale
+//		nadpisaæ ca³¹ listê z argumentu
+		
+		
 	}
 
 }

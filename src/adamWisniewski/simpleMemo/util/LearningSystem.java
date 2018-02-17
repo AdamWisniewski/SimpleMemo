@@ -12,8 +12,6 @@ public class LearningSystem {
 	public FlashCard getFlashCardToLearn(List<FlashCard> listUnderLearning) throws IOException {
 
 		Random randomizer = new Random();
-		
-		System.out.println(listUnderLearning.size());
 
 		return listUnderLearning.remove(randomizer.nextInt(listUnderLearning.size()));
 
@@ -37,25 +35,3 @@ public class LearningSystem {
 	}
 
 }
-
-
-//
-// //-----------------------
-// // --- metoda nadpisywania Knowlege w pierwotnej liœcie iportowanej z CSV
-//
-// ListController.originalListFromCSVFile
-// // tam gdzie word1 fiszki równa sie flashCardOnDisplay.getWord1()
-// fiszka.setKnowlege("1")
-//
-//
-// } else {
-//
-// // ---- zamkn¹c w metode - gdy zla odpowiedŸ
-//
-// wyœwietl lb_wrongAndswer;
-//
-// // wywolac podmetode
-//
-//
-//
-// }
