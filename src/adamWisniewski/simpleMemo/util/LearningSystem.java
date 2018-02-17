@@ -35,87 +35,70 @@ public class LearningSystem {
 		}
 	}
 
-	
-		
-		
-		
-	}
+}
 
-	// // --- zamknac w metode z argumentami(fiszka i boolean) i wrzucic do innej
-	// klasy
-	// // np util.learningActions
-	// // zrobic sobie import statyczny z login cotrollera by nie pisac ciagle nazwy
-	// // klasy
-	//
-
-	//
-	// // wrzucanie pól fiszki na okno nauki
-	//
-	// 
-	//
-	// // ----------------koniec metody obsadzaj¹cej pola w oknie nauki
-	//
-	// // ----------- metoda sprawdzania poprawnych odpowiedzi uruchamiana po
-	// // naciœniciu sprawdzam lub enter (enter chyba dac jako akcja on presed na
-	// // anchorpane)
-	//
-	// if(lb_wordToGuess wyœwietlone)
-	// {
-	//
-	// ukryj lb_goodAndswer;
-	//
-	// ukryj lb_wordToGuess;
-	//
-	// ukryj lb_wordComment;
-	//
-	// wyswietl lb_checkShortCutInformation;
-	//
-	// ukryj lb_goToNextShortCutInformation;
-	//
-	// // wywolaj metode do wyekstrachowania
-	//
-	// }else
-	// {
-	//
-	//
-	//
-	//
-	//
-	//
-	// if (tf_wordToEnter = wordToGuess) {
-	//
-	// // ---- zamkn¹c w metode - gdy poprawna odpowiedŸ
-	//
-	// wyœwietl lb_goodAndswer;
-	//
-	// // --- zamkn¹c w podmetode
-	//
-	// wyœwietl lb_wordToGuess;
-	//
-	// wyœwietl lb_wordComment;
-	//
-	// ukryj lb_checkShortCutInformation;
-	//
-	// wyœwietl lb_goToNextShortCutInformation;
-	//
-	// //------------------------
-	//
-	// //-----------------------
-	// // --- metoda nadpisywania Knowlege w pierwotnej liœcie iportowanej z CSV
-	//
-	// ListController.originalListFromCSVFile
-	// // tam gdzie word1 fiszki równa sie flashCardOnDisplay.getWord1()
-	// fiszka.setKnowlege("1")
-	//
-	//
-	// } else {
-	//
-	// // ---- zamkn¹c w metode - gdy zla odpowiedŸ
-	//
-	// wyœwietl lb_wrongAndswer;
-	//
-	// // wywolac podmetode
-	//
-	//
-	//
-	// }
+// wrzuciæ metodê do learncontroller bo pola okna s¹ przecie¿ prywatne!!
+// // ----------- metoda sprawdzania poprawnych odpowiedzi uruchamiana po
+// // naciœniciu sprawdzam lub enter (enter chyba dac jako akcja on presed na
+// // anchorpane)
+//
+// if(lb_wordToGuess wyœwietlone)
+// {
+//
+// ukryj lb_goodAndswer;
+//
+// ukryj lb_wordToGuess;
+//
+// ukryj lb_wordComment;
+//
+// wyswietl lb_checkShortCutInformation;
+//
+// ukryj lb_goToNextShortCutInformation;
+//
+// // wywolaj metode do wyekstrachowania
+//
+// }else
+// {
+//
+//
+//
+//
+//
+//
+// if (tf_wordToEnter = wordToGuess) {
+//
+// // ---- zamkn¹c w metode - gdy poprawna odpowiedŸ
+//
+// wyœwietl lb_goodAndswer;
+//
+// // --- zamkn¹c w podmetode
+//
+// wyœwietl lb_wordToGuess;
+//
+// wyœwietl lb_wordComment;
+//
+// ukryj lb_checkShortCutInformation;
+//
+// wyœwietl lb_goToNextShortCutInformation;
+//
+// //------------------------
+//
+// //-----------------------
+// // --- metoda nadpisywania Knowlege w pierwotnej liœcie iportowanej z CSV
+//
+// ListController.originalListFromCSVFile
+// // tam gdzie word1 fiszki równa sie flashCardOnDisplay.getWord1()
+// fiszka.setKnowlege("1")
+//
+//
+// } else {
+//
+// // ---- zamkn¹c w metode - gdy zla odpowiedŸ
+//
+// wyœwietl lb_wrongAndswer;
+//
+// // wywolac podmetode
+//
+//
+//
+// }
