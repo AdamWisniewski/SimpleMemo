@@ -194,14 +194,14 @@ public class LearnController {
 	public void setFlashCardWordsOnWindow(FlashCard flashCardOnDisplay, Boolean word2ToHint) {
 		if (word2ToHint == true) {
 
-			LearnController.setWordToDisplay(flashCardOnDisplay.getWord1());
+			setWordToDisplay(flashCardOnDisplay.getWord1());
 
-			LearnController.setWordToGuess(flashCardOnDisplay.getWord2());
+			setWordToGuess(flashCardOnDisplay.getWord2());
 
 		} else {
-			LearnController.setWordToDisplay(flashCardOnDisplay.getWord2());
+			setWordToDisplay(flashCardOnDisplay.getWord2());
 
-			LearnController.setWordToGuess(flashCardOnDisplay.getWord1());
+			setWordToGuess(flashCardOnDisplay.getWord1());
 		}
 
 		lb_wordToDisplay.setText(getWordToDisplay());
@@ -212,4 +212,62 @@ public class LearnController {
 
 	}
 
+	// metoda ta ma siê raz uruchomniæ w initialize i potem na przycisku dalej lub
+	// przyciœniêciu enter (enter chyba dac jako akcja on presed naanchorpane)
+	public void checkAnswer() throws IOException {
+
+		if (lb_wordToGuess.isVisible()) {
+
+			ls.checkListIsEmpty(listUnderLearning);
+
+			setLabelsVisibilityBeforeNextAttempt();
+
+			flashCardOnDisplay = ls.getFlashCardToLearn(listUnderLearning);
+
+			setFlashCardWordsOnWindow(flashCardOnDisplay, word2ToHint);
+
+		} else {
+
+			if (tf_wordToEnter.getText().equals(wordToGuess)) {
+
+				lb_goodAndswer.setVisible(true);
+
+				setLabelsVisibilityAfterWordCheck();
+
+			} else {
+
+				lb_wrongAndswer.setVisible(true);
+
+				setLabelsVisibilityAfterWordCheck();
+
+			}
+
+		}
+	}
+
+	private void setLabelsVisibilityAfterWordCheck() {
+
+		lb_wordToGuess.setVisible(true);
+
+		lb_wordComment.setVisible(true);
+
+		lb_checkShortCutInformation.setVisible(false);
+
+		lb_goToNextShortCutInformation.setVisible(true);
+	}
+
+	private void setLabelsVisibilityBeforeNextAttempt() {
+
+		lb_goodAndswer.setVisible(false);
+
+		lb_wrongAndswer.setVisible(false);
+
+		lb_wordToGuess.setVisible(false);
+
+		lb_wordComment.setVisible(false);
+
+		lb_checkShortCutInformation.setVisible(true);
+
+		lb_goToNextShortCutInformation.setVisible(false);
+	}
 }

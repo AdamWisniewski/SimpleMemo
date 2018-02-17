@@ -149,7 +149,7 @@ public class ListController {
 
 		if (listToLearn.isEmpty()) {
 
-			DialogController.showDialogEmptyListToLearn();
+			DialogController.showDialogWhenListIsEmpty();;
 
 		} else {
 

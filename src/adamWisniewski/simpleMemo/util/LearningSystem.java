@@ -17,17 +17,16 @@ public class LearningSystem {
 
 	}
 
-	public void checkListToLearnIsEmpty(List<FlashCard> listUnderLearning) throws IOException {
+	public void checkListIsEmpty(List<FlashCard> listUnderLearning) throws IOException {
 		if (listUnderLearning.isEmpty()) {
 
 			// zapisac originalListFromCSVFile do pliku
-
 			// tu bedzie cala metoda z kopiowaniem pliku, zapisywaniem tresci do starego i w
 			// catch ewentualnie kasowanie oryginalu
 			// i zmiana nazwy z kopii na orygina³ i wyswietlenie okienka ze zapis sie nie
 			// udal i jest wersja slowek sprzed nauki
 
-			DialogController.showDialogEmptyListToLearn();
+			DialogController.showDialogWhenListIsEmpty();
 
 			WindowInitializer wi = new WindowInitializer();
 			wi.setStage("ListView");
@@ -37,51 +36,7 @@ public class LearningSystem {
 
 }
 
-// wrzuciæ metodê do learncontroller bo pola okna s¹ przecie¿ prywatne!!
-// // ----------- metoda sprawdzania poprawnych odpowiedzi uruchamiana po
-// // naciœniciu sprawdzam lub enter (enter chyba dac jako akcja on presed na
-// // anchorpane)
-//
-// if(lb_wordToGuess wyœwietlone)
-// {
-//
-// ukryj lb_goodAndswer;
-//
-// ukryj lb_wordToGuess;
-//
-// ukryj lb_wordComment;
-//
-// wyswietl lb_checkShortCutInformation;
-//
-// ukryj lb_goToNextShortCutInformation;
-//
-// // wywolaj metode do wyekstrachowania
-//
-// }else
-// {
-//
-//
-//
-//
-//
-//
-// if (tf_wordToEnter = wordToGuess) {
-//
-// // ---- zamkn¹c w metode - gdy poprawna odpowiedŸ
-//
-// wyœwietl lb_goodAndswer;
-//
-// // --- zamkn¹c w podmetode
-//
-// wyœwietl lb_wordToGuess;
-//
-// wyœwietl lb_wordComment;
-//
-// ukryj lb_checkShortCutInformation;
-//
-// wyœwietl lb_goToNextShortCutInformation;
-//
-// //------------------------
+
 //
 // //-----------------------
 // // --- metoda nadpisywania Knowlege w pierwotnej liœcie iportowanej z CSV

@@ -8,7 +8,7 @@ import javafx.scene.control.ButtonType;
 
 public class DialogController {
 
-	public static void showDialogEmptyListToLearn() {
+	public static void showDialogWhenListIsEmpty() {
 
 		Alert alert = new Alert(AlertType.INFORMATION);
 		alert.setTitle("Gratulacje!");
