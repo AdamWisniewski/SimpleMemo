@@ -176,7 +176,7 @@ public class LearnController {
 
 		// shows dialog to decide which word will be displayed - decision is set
 		// in boolean word2ToHint
-		word2ToHint = DialogController.showDialogWordToLearn();
+		word2ToHint = DialogController.showDialogWordToLearn(ListController.csvHeader);
 
 		flashCardOnDisplay = ls.getFlashCardToLearn(listUnderLearning);
 
@@ -227,8 +227,9 @@ public class LearnController {
 			setFlashCardWordsOnWindow(flashCardOnDisplay, word2ToHint);
 
 		} else {
+			
 
-			ls.checkListIsEmpty(listUnderLearning);
+			ls.checkOneAttemptListIsEmpty(listUnderLearning);
 
 			if (tf_wordToEnter.getText().equals(wordToGuess)) {
 

@@ -1,5 +1,6 @@
 package adamWisniewski.simpleMemo.controller;
 
+import java.util.Map;
 import java.util.Optional;
 
 import javafx.scene.control.Alert;
@@ -19,13 +20,15 @@ public class DialogController {
 
 	}
 
-	public static Boolean showDialogWordToLearn() {
+	public static Boolean showDialogWordToLearn(Map <String, Integer> csvHeader) {
 
 		Alert alert = new Alert(AlertType.CONFIRMATION);
 		alert.setTitle("Wybierz tryb nauki");
 		alert.setHeaderText("Wybierz tryb nauki");
 
-		ButtonType buttonTypeOne = new ButtonType("ucz siê word1 zgaduj word2");
+		
+		// ogarn¹æ temat!
+		ButtonType buttonTypeOne = new ButtonType("ucz siê " + csvHeader.entrySet().stream().findFirst() + "zgaduj word2");
 		ButtonType buttonTypeTwo = new ButtonType("ucz siê word2 zgaduj word1");
 
 		alert.getButtonTypes().setAll(buttonTypeOne, buttonTypeTwo);

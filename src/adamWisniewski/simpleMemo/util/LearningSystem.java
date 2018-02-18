@@ -5,6 +5,7 @@ import java.util.List;
 import java.util.Random;
 
 import adamWisniewski.simpleMemo.controller.DialogController;
+import adamWisniewski.simpleMemo.controller.ListController;
 import adamWisniewski.simpleMemo.model.FlashCard;
 
 public class LearningSystem {
@@ -17,19 +18,25 @@ public class LearningSystem {
 
 	}
 
-	public void checkListIsEmpty(List<FlashCard> listUnderLearning) throws IOException {
+	public void checkOneAttemptListIsEmpty(List<FlashCard> listUnderLearning) throws IOException {
 		if (listUnderLearning.isEmpty()) {
 
-			// zapisac originalListFromCSVFile do pliku
-			// tu bedzie cala metoda z kopiowaniem pliku, zapisywaniem tresci do starego i w
-			// catch ewentualnie kasowanie oryginalu
-			// i zmiana nazwy z kopii na orygina³ i wyswietlenie okienka ze zapis sie nie
-			// udal i jest wersja slowek sprzed nauki
+			System.out.println("kolejna pêtla");
 
-			DialogController.showDialogWhenListIsEmpty();
+			ListController.setListToLearn(CSVConverter.makeListToLearn(ListController.originalListFromCSVFile));
 
-			WindowInitializer wi = new WindowInitializer();
-			wi.setStage("ListView");
+			if (ListController.listToLearn.isEmpty()) {
+
+				CSVConverter.writeListToCSV(ListController.originalListFromCSVFile, CSVConverter.filePath);
+
+				DialogController.showDialogWhenListIsEmpty();
+
+				WindowInitializer wi = new WindowInitializer();
+				wi.setStage("ListView");
+
+			}
+			
+			System.out.println("zapisano stan znanych s³ówek do g³ównego pliku CSV");
 
 		}
 	}

@@ -2,7 +2,9 @@ package adamWisniewski.simpleMemo.controller;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import adamWisniewski.simpleMemo.model.FlashCard;
 import adamWisniewski.simpleMemo.util.CSVConverter;
@@ -31,12 +33,15 @@ public class ListController {
 		ListController.flashCardListName = flashCardListName;
 	}
 
-	// very important list - to modify after learning and rewrite in original file
-	// może przeniesc ją do innej klasy np. utworzyc model ??
-
 	public static List<FlashCard> originalListFromCSVFile = new ArrayList<FlashCard>();
 
 	public static List<FlashCard> listToLearn = new ArrayList<FlashCard>();
+
+	public static void setListToLearn(List<FlashCard> listToLearn) {
+		ListController.listToLearn = listToLearn;
+	}
+	
+	public static Map<String, Integer> csvHeader = new HashMap<String, Integer>();
 
 	@FXML
 	private AnchorPane ap_listView;
@@ -144,12 +149,15 @@ public class ListController {
 		flashCardListName = lv_listOfSets.getSelectionModel().getSelectedItem();
 
 		originalListFromCSVFile = CSVConverter.readCSVtoList();
+		
+		csvHeader = CSVConverter.readCSVHeaders();
+		System.out.println(csvHeader);
 
-		listToLearn = CSVConverter.makeListToLearn(originalListFromCSVFile);
+		setListToLearn(CSVConverter.makeListToLearn(originalListFromCSVFile));
 
 		if (listToLearn.isEmpty()) {
 
-			DialogController.showDialogWhenListIsEmpty();;
+			DialogController.showDialogWhenListIsEmpty();
 
 		} else {
 
