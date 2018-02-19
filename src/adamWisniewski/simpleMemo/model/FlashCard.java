@@ -9,8 +9,7 @@ public class FlashCard {
 	
 	@Override
 	public String toString() {
-		return "FlashCard [word1=" + word1 + ", word2=" + word2 + ", knowlege=" + knowlege + ", comment=" + comment
-				+ "]";
+		return word1 + ", " + word2 + ", " + knowlege + ", " + comment;
 	}
 	public FlashCard() {
 		super();

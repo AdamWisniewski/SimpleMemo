@@ -5,6 +5,7 @@ import java.util.List;
 import java.util.Random;
 
 import adamWisniewski.simpleMemo.controller.DialogController;
+import adamWisniewski.simpleMemo.controller.LearnController;
 import adamWisniewski.simpleMemo.controller.ListController;
 import adamWisniewski.simpleMemo.model.FlashCard;
 
@@ -18,16 +19,22 @@ public class LearningSystem {
 
 	}
 
-	public void checkOneAttemptListIsEmpty(List<FlashCard> listUnderLearning) throws IOException {
+	public void makeSavesIfListIsEmpty(List<FlashCard> listUnderLearning) throws IOException {
 		if (listUnderLearning.isEmpty()) {
 
-			System.out.println("kolejna pêtla");
+			CSVConverter.writeListToCSV(ListController.originalListFromCSVFile, CSVConverter.filePath);
+
+			System.out.println("zapisano stan z originalList do pliku CSV");
 
 			ListController.setListToLearn(CSVConverter.makeListToLearn(ListController.originalListFromCSVFile));
 
-			if (ListController.listToLearn.isEmpty()) {
+			LearnController.listUnderLearning = ListController.listToLearn;
 
-				CSVConverter.writeListToCSV(ListController.originalListFromCSVFile, CSVConverter.filePath);
+			System.out.println("pobrano z glownej listy fiszki ktorych nie znamy");
+
+			// czy Java wy³apie zmiane wartoœci argumentu czy bedzie bra³a wartoœc z momentu
+			// inicjowania calej tej metody czyli gdy lista ta byla na pewno pusta??
+			if (listUnderLearning.isEmpty()) {
 
 				DialogController.showDialogWhenListIsEmpty();
 
@@ -35,8 +42,7 @@ public class LearningSystem {
 				wi.setStage("ListView");
 
 			}
-			
-			System.out.println("zapisano stan znanych s³ówek do g³ównego pliku CSV");
+			System.out.println("zaczynamy kolejn¹ pêtlê");
 
 		}
 	}

@@ -21,7 +21,7 @@ import javafx.scene.layout.AnchorPane;
 
 public class LearnController {
 
-	List<FlashCard> listUnderLearning = new ArrayList<FlashCard>();
+	public static List<FlashCard> listUnderLearning = new ArrayList<FlashCard>();
 
 	Boolean word2ToHint;
 
@@ -176,7 +176,7 @@ public class LearnController {
 
 		// shows dialog to decide which word will be displayed - decision is set
 		// in boolean word2ToHint
-		word2ToHint = DialogController.showDialogWordToLearn(ListController.csvHeader);
+		word2ToHint = DialogController.showDialogWordToLearn(CSVConverter.header);
 
 		flashCardOnDisplay = ls.getFlashCardToLearn(listUnderLearning);
 
@@ -220,6 +220,8 @@ public class LearnController {
 
 		if (lb_wordToGuess.isVisible()) {
 
+			ls.makeSavesIfListIsEmpty(listUnderLearning);
+
 			setLabelsVisibilityBeforeNextAttempt();
 
 			flashCardOnDisplay = ls.getFlashCardToLearn(listUnderLearning);
@@ -227,16 +229,13 @@ public class LearnController {
 			setFlashCardWordsOnWindow(flashCardOnDisplay, word2ToHint);
 
 		} else {
-			
-
-			ls.checkOneAttemptListIsEmpty(listUnderLearning);
 
 			if (tf_wordToEnter.getText().equals(wordToGuess)) {
 
 				lb_goodAndswer.setVisible(true);
 
 				setLabelsVisibilityAfterWordCheck();
-				
+
 				CSVConverter.setKnowlegeOfFlashCardInList(ListController.originalListFromCSVFile, flashCardOnDisplay);
 
 			} else {
