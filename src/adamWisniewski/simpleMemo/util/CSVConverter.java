@@ -81,11 +81,11 @@ public class CSVConverter {
 
 		BufferedWriter writer = Files.newBufferedWriter(Paths.get(filePath));
 
-		CSVPrinter csvPrinter = new CSVPrinter(writer, CSVFormat.DEFAULT.withHeader(header.toString()));
+		CSVPrinter csvPrinter = new CSVPrinter(writer, CSVFormat.DEFAULT.withHeader(header.getWord1(), header.getWord2(), header.getKnowlege(), header.getComment()));
 
 		for (FlashCard fc : originalListFromCSVFile) {
 
-			csvPrinter.printRecord(fc.toString());
+			csvPrinter.printRecord(fc.getWord1(), fc.getWord2(), fc.getKnowlege(), fc.getComment());
 		}
 
 		csvPrinter.flush();
