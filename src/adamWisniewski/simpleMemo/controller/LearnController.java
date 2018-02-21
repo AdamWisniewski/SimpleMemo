@@ -236,7 +236,7 @@ public class LearnController {
 
 				setLabelsVisibilityAfterWordCheck();
 
-				CSVConverter.setKnowlegeOfFlashCardInList(ListController.originalListFromCSVFile, flashCardOnDisplay);
+				CSVConverter.setKnowlegeOfFlashCard(ListController.originalListFromCSVFile, flashCardOnDisplay, "1");
 
 			} else {
 

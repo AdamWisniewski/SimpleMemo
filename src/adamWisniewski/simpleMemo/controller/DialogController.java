@@ -39,5 +39,15 @@ public class DialogController {
 		}
 
 	}
+	
+	public static void showDialogWhenLearningLoopEnds() {
+		
+		Alert alert = new Alert(AlertType.INFORMATION);
+		alert.setTitle("Simple Memo");
+		alert.setHeaderText("Koniec stosu fiszek");
+		alert.setContentText("Nauczone s³ówka odk³adamy na bok. Rozpoczynamy kolejn¹ seriê!");
+
+		alert.showAndWait();
+	}
 
 }

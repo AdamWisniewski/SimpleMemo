@@ -15,6 +15,7 @@ public class WindowInitializer {
 				.load(getClass().getResource("/adamWisniewski/simpleMemo/view/" + viewName + ".fxml"));
 
 		Scene scene = new Scene(parent);
+		scene.getStylesheets().add("adamWisniewski/simpleMemo/app/application.css");
 		Main.getFirstStage().setScene(scene);
 		Main.getFirstStage().setTitle("Simple Memo");
 		Main.getFirstStage().setResizable(false);

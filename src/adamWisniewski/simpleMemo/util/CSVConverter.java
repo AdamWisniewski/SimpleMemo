@@ -64,13 +64,13 @@ public class CSVConverter {
 		return setToLearn;
 	}
 
-	public static void setKnowlegeOfFlashCardInList(List<FlashCard> originalListFromCSVFile,
-			FlashCard flashCardOnDisplay) {
+	public static void setKnowlegeOfFlashCard(List<FlashCard> originalListFromCSVFile,
+			FlashCard flashCardOnDisplay, String knowlege) {
 
 		for (FlashCard fc : originalListFromCSVFile) {
 
 			if (fc.equals(flashCardOnDisplay)) {
-				fc.setKnowlege("1");
+				fc.setKnowlege(knowlege);
 			}
 
 		}
@@ -91,6 +91,17 @@ public class CSVConverter {
 		csvPrinter.flush();
 		csvPrinter.close();
 
+	}
+	
+	public static void resetKnowlegeInCSV(List<FlashCard> originalListFromCSVFile, String knowlege) {
+		
+		for (FlashCard fc : originalListFromCSVFile) {
+
+				fc.setKnowlege(knowlege);
+			
+
+		}
+		
 	}
 
 }

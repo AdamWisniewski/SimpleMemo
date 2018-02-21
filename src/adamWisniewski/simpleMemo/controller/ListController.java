@@ -142,11 +142,7 @@ public class ListController {
 	@FXML
 	void goToLearn(MouseEvent event) throws IOException {
 
-		flashCardListName = lv_listOfSets.getSelectionModel().getSelectedItem();
-
-		originalListFromCSVFile = CSVConverter.readCSVtoList();
-
-		setListToLearn(CSVConverter.makeListToLearn(originalListFromCSVFile));
+		setListToLearnFromCurrentSelection();
 
 		if (listToLearn.isEmpty()) {
 
@@ -177,7 +173,13 @@ public class ListController {
 	}
 
 	@FXML
-	void resetSet(MouseEvent event) {
+	void resetSet(MouseEvent event) throws IOException {
+
+		setListToLearnFromCurrentSelection();
+		
+		CSVConverter.resetKnowlegeInCSV(originalListFromCSVFile, "0");
+		
+		CSVConverter.writeListToCSV(originalListFromCSVFile, CSVConverter.filePath);
 
 	}
 
@@ -194,6 +196,14 @@ public class ListController {
 
 		lv_listOfSets.setItems(RepositoryInitializer.createListOfContent(LoginController.getUserName()));
 
+	}
+
+	private void setListToLearnFromCurrentSelection() throws IOException {
+		flashCardListName = lv_listOfSets.getSelectionModel().getSelectedItem();
+
+		originalListFromCSVFile = CSVConverter.readCSVtoList();
+
+		setListToLearn(CSVConverter.makeListToLearn(originalListFromCSVFile));
 	}
 
 }

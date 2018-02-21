@@ -24,22 +24,11 @@ public class LearningSystem {
 
 			CSVConverter.writeListToCSV(ListController.originalListFromCSVFile, CSVConverter.filePath);
 
-			System.out.println("zapisano stan z originalList do pliku CSV");
-
-			// naprawiæ ten bajzel po naprawieniu argumentu z odniesieniem do LearnController
 			ListController.setListToLearn(CSVConverter.makeListToLearn(ListController.originalListFromCSVFile));
-			
+
 			LearnController.listUnderLearning = CSVConverter.makeListToLearn(ListController.originalListFromCSVFile);
 
-//			LearnController.listUnderLearning = ListController.listToLearn;
-
-			System.out.println("pobrano z glownej listy fiszki ktorych nie znamy");
-
-			// czy Java wy³apie zmiane wartoœci argumentu czy bedzie bra³a wartoœc z momentu
-			// inicjowania calej tej metody czyli gdy lista ta byla na pewno pusta??
 			if (LearnController.listUnderLearning.isEmpty()) {
-				
-				System.out.println("weszliœmy do pêtli");
 
 				DialogController.showDialogWhenListIsEmpty();
 
@@ -47,7 +36,8 @@ public class LearningSystem {
 				wi.setStage("ListView");
 
 			}
-			System.out.println("zaczynamy kolejn¹ pêtlê");
+
+			DialogController.showDialogWhenLearningLoopEnds();
 
 		}
 	}
