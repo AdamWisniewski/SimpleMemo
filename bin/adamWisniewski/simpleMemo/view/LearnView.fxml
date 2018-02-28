@@ -61,5 +61,10 @@
             <Font size="11.0" />
          </font>
       </Label>
+      <Label fx:id="lb_amountOfFlashcards" layoutX="273.0" layoutY="269.0" prefHeight="16.0" prefWidth="56.0" text="x/x/x" textAlignment="CENTER">
+         <font>
+            <Font size="11.0" />
+         </font>
+      </Label>
    </children>
 </AnchorPane>

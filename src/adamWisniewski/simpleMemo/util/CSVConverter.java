@@ -45,7 +45,6 @@ public class CSVConverter {
 		}
 
 		header = formattedList.remove(0);
-		System.out.println(header);
 
 		return formattedList;
 	}

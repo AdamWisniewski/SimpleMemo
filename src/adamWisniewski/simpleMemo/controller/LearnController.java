@@ -7,6 +7,7 @@ import java.util.List;
 import adamWisniewski.simpleMemo.model.FlashCard;
 import adamWisniewski.simpleMemo.util.CSVConverter;
 import adamWisniewski.simpleMemo.util.LearningSystem;
+import adamWisniewski.simpleMemo.util.WindowInitializer;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -117,6 +118,9 @@ public class LearnController {
 
 	@FXML
 	private Label lb_goToNextShortCutInformation;
+	
+    @FXML
+    private Label lb_amountOfFlashcards;
 
 	@FXML
 	void createNewFlashcardSet(ActionEvent event) {
@@ -156,7 +160,12 @@ public class LearnController {
 	}
 
 	@FXML
-	void goToSetList(ActionEvent event) {
+	void goToSetList(ActionEvent event) throws IOException {
+		
+		CSVConverter.writeListToCSV(ListController.originalListFromCSVFile, CSVConverter.filePath);
+		
+		WindowInitializer wi = new WindowInitializer();
+		wi.setStage("ListView");
 
 	}
 
@@ -166,7 +175,10 @@ public class LearnController {
 	}
 
 	@FXML
-	void logOut(ActionEvent event) {
+	void logOut(ActionEvent event) throws IOException {
+		
+		WindowInitializer wi = new WindowInitializer();
+		wi.setStage("LoginView");
 
 	}
 
@@ -177,10 +189,14 @@ public class LearnController {
 		// shows dialog to decide which word will be displayed - decision is set
 		// in boolean word2ToHint
 		word2ToHint = DialogController.showDialogWordToLearn(CSVConverter.header);
+		
+		lb_amountOfFlashcards.setText(listUnderLearning.size() +" / " +  ListController.originalListFromCSVFile.size());
 
 		flashCardOnDisplay = ls.getFlashCardToLearn(listUnderLearning);
 
 		setFlashCardWordsOnWindow(flashCardOnDisplay, word2ToHint);
+		
+		
 
 		// pressed enter works as button to trigger checkAndswerAndGoToNext()
 		ap_loginView.setOnKeyPressed(e -> {
@@ -245,6 +261,8 @@ public class LearnController {
 				setLabelsVisibilityAfterWordCheck();
 
 			}
+			
+			lb_amountOfFlashcards.setText(listUnderLearning.size() +" / " +  ListController.originalListFromCSVFile.size());
 
 		}
 	}

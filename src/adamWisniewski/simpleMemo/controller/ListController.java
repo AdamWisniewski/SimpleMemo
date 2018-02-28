@@ -88,6 +88,9 @@ public class ListController {
 	private ListView<String> lv_listOfSets;
 
 	@FXML
+	private Label lb_flashCardKnowlegeAmountInformation;
+
+	@FXML
 	private Button bt_goToLearn;
 
 	@FXML
@@ -141,7 +144,7 @@ public class ListController {
 
 	@FXML
 	void goToLearn(MouseEvent event) throws IOException {
-
+		
 		setListToLearnFromCurrentSelection();
 
 		if (listToLearn.isEmpty()) {
@@ -175,18 +178,22 @@ public class ListController {
 	@FXML
 	void resetSet(MouseEvent event) throws IOException {
 
-		setListToLearnFromCurrentSelection();
-		
+//		metoda zbêdna gdy¿ przeniesion¹ j¹ do akcji selekcji z okna wybory i odnosi siê wtedy do wszystkich przycisków
+//		setListToLearnFromCurrentSelection();
+
 		CSVConverter.resetKnowlegeInCSV(originalListFromCSVFile, "0");
-		
+
 		CSVConverter.writeListToCSV(originalListFromCSVFile, CSVConverter.filePath);
 
 	}
 
 	@FXML
-	void selectedSet(MouseEvent event) {
+	void selectedSet(MouseEvent event) throws IOException {
+
+		
 
 		bt_goToLearn.setDisable(false);
+//		lb_flashCardKnowlegeAmountInformation.setText(listToLearn.size() + " / " + originalListFromCSVFile.size() + " do odgadniêcia");
 		bt_goToEdit.setDisable(false);
 		bt_resetSet.setDisable(false);
 
